@@ -17,8 +17,6 @@ function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-
-
 function resetArray() {
     arr = [];
     // console.log("Array reset called !");
@@ -37,15 +35,14 @@ function resetArray() {
 }
 
 function visualize() {
-    const elements = document.getElementById("elements").value
-    const speed = document.getElementById("speed").value
-    init(elements, speed)
+    const elements = document.getElementById("elements").value;
+    const speed = document.getElementById("speed").value;
+    init(elements, speed);
 }
-
 
 function addCard(elements = 10) {
     const container = document.querySelector(".row");
-    container.innerHTML = ""
+    container.innerHTML = "";
     for (let i = 0; i < elements; i++) {
         container.innerHTML += `<div class="column"><div class="card"><span id="${i}">56</span><span class="index">${i}</span></div></div>`;
     }
@@ -89,11 +86,11 @@ async function linearSearch() {
             result.style.display = "block";
             result.innerHTML = "Number not found ";
         }
+        window.scrollBy({ top: 500, behavior: "smooth" });
         searchKey.value = "";
     }
 }
 
-
 window.onload = () => {
-    init()
+    init();
 };

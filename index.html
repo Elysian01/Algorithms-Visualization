@@ -17,61 +17,81 @@
             <li class="logo">Search Algo <span>Visualization</span></li>
             <div class="items">
                 <li><a href="index.html">Linear</a></li>
-                <li><a href="#">Jump</a></li>
+                <li><a href="templates/jumpSearch.html">Jump</a></li>
                 <li>
                     <a href="templates/binarySearch.html">Binary</a>
                 </li>
-                <li><a href="#">Exponentional</a></li>
-            </div>
-        </ul>
-    </nav>
-    <br />
-    <h1 class="heading">Linear Search [O(n)]</h1>
+                <li>
+                    <a href="templates/jumpSearch.html">Exponentional</a
+						>
+					</li>
+				</div>
+			</ul>
+		</nav>
+		<br />
+		<h1 class="heading">Linear Search [O(n)]</h1>
 
-    <br /><br />
-    <div class="container flex-row">
-        <label for="elements">No. of Elements</label>
-        <select name="elements" id="elements">
+		<br /><br />
+		<div class="container flex-row">
+			<label for="elements">No. of Elements</label>
+			<select name="elements" id="elements">
 				<option value="10">10</option>
 				<option value="20">20</option>
 				<option value="30">30</option>
 			</select>
-        <label for="speed">Speed</label>
-        <select name="speed" id="speed">
+			<label for="speed">Speed</label>
+			<select name="speed" id="speed">
 				<option value="1200">Slow</option>
 				<option value="750">Medium</option>
 				<option value="500">Fast</option>
 			</select>
-        <button class="info btn-shadow" id="visualize" onclick="visualize() ">
+			<button
+				class="info btn-shadow"
+				id="visualize"
+				onclick="visualize() "
+			>
 				Set Visualize
 			</button>
-    </div>
+		</div>
 
-    <div class="container">
-        <input type="number" id="searchKey" class="number-input btn-lg" placeholder="Find Number" required />
-        <br />
-        <br />
-        <button class="success btn-lg btn-shadow" id="search" onclick="linearSearch()">
+		<div class="container">
+			<input
+				type="number"
+				id="searchKey"
+				class="number-input btn-lg"
+				placeholder="Find Number"
+				required
+			/>
+			<br />
+			<br />
+			<button
+				class="success btn-lg btn-shadow"
+				id="search"
+				onclick="linearSearch()"
+			>
 				Search
 			</button>
-        <button class="danger btn-lg btn-shadow" id="reset" onclick="resetArray() ">
+			<button
+				class="danger btn-lg btn-shadow"
+				id="reset"
+				onclick="resetArray() "
+			>
 				Reset Array
 			</button>
-    </div>
+		</div>
 
-    <br /><br />
+		<br /><br />
 
-    <div class="data-container">
-        <div class="row"></div>
-    </div>
+		<div class="data-container">
+			<div class="row"></div>
+		</div>
 
-    <br /><br />
+		<br /><br />
 
-    <div class="container">
-        <h1 class="result"></h1>
-    </div>
+		<div class="container">
+			<h1 class="result"></h1>
+		</div>
 
-    <script src="js/linearSearch.js "></script>
-</body>
-
+		<script src="js/linearSearch.js "></script>
+	</body>
 </html>

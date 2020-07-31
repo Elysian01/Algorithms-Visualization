@@ -12,6 +12,10 @@
     font-weight: bold;
 }
 
+.image {
+    max-width: 350px;
+}
+
 .container {
     /* width: 80%; */
     margin: 0 auto;

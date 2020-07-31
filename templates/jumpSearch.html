@@ -8,7 +8,7 @@
     <link rel="icon" href="../img/logo.png" />
     <link rel="stylesheet" href="../css/sortingStyles.css" />
     <link rel="stylesheet" href="../css/navbar.css" />
-    <title>Binary Search</title>
+    <title>Jump Search</title>
 </head>
 
 <body>
@@ -26,9 +26,14 @@
         </ul>
     </nav>
     <br />
-    <h1 class="heading">Binary Search [O(logn)]</h1>
+    <h1 class="heading">Jump Search</h1>
 
-    <br /><br />
+    <div class="container">
+        <img src="../img/jump.png" alt="jump algo explanation" class="image" />
+        <h3>m = sqrt(n) = <span id="m-value">3</span></h3>
+    </div>
+
+    <br />
     <div class="container flex-row">
         <label for="elements">No. of Elements</label>
         <select name="elements" id="elements">
@@ -42,7 +47,7 @@
 				<option value="750">Medium</option>
 				<option value="500">Fast</option>
 			</select>
-        <button class="info btn-shadow" id="visualize" onclick="visualize() ">
+        <button class="info btn-shadow" id="visualize" onclick="jumpVisualize() ">
 				Set Visualize
 			</button>
     </div>
@@ -51,7 +56,7 @@
         <input type="number" id="searchKey" class="number-input btn-lg" placeholder="Find Number" required />
         <br />
         <br />
-        <button class="success btn-lg btn-shadow" id="search" onclick="binarySearch()">
+        <button class="success btn-lg btn-shadow" id="search" onclick="jumpSearch()">
 				Search
 			</button>
         <button class="danger btn-lg btn-shadow" id="reset" onclick="sortResetArray() ">
@@ -70,6 +75,7 @@
     <div class="container">
         <h1 class="result"></h1>
     </div>
+    <br /><br /><br />
 
     <script src="../js/sortedSearch.js "></script>
 </body>
