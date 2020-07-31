@@ -1,0 +1,146 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.heading {
+    margin: 20px auto;
+    color: #003b46;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.container {
+    /* width: 80%; */
+    margin: 0 auto;
+    text-align: center;
+}
+
+.number-input {
+    width: 60%;
+    max-width: 800px;
+    height: 50px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #fafafa;
+    border: 0;
+    margin: 10px 50px;
+    font-size: 20px;
+    box-shadow: 0 8px #ccc;
+    outline: none;
+    /* margin-left: 6rem; */
+}
+
+label {
+    font-size: large;
+    margin: 0 10px;
+}
+
+select {
+    margin-right: 5px;
+}
+
+.flex-row {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+}
+
+.danger {
+    background-color: #fe4a49;
+    /* background-color: #ff4d00; */
+    border: none;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 4px;
+    display: inline;
+    cursor: pointer;
+}
+
+.success {
+    background-color: #74d600;
+    border: none;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 4px;
+    display: inline;
+    cursor: pointer;
+}
+
+.info {
+    background-color: #0096fe;
+    border: none;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 4px;
+    display: inline;
+    cursor: pointer;
+}
+
+.btn-lg {
+    font-size: large;
+    padding: 0.5rem 1.5rem;
+}
+
+.btn-shadow {
+    box-shadow: 0px 2px #888;
+}
+
+.ml-5 {
+    margin-left: 1rem;
+}
+
+.mr-5 {
+    margin-right: 1rem;
+}
+
+.row {
+    margin-left: 15rem;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    width: 8%;
+    padding: 0 10px;
+}
+
+.index {
+    display: block;
+    background-color: #5bc8ac;
+    padding: 2px 0px;
+    margin-top: 10px;
+    color: #003b46;
+}
+
+.card {
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+    padding: 18px;
+    text-align: center;
+    background-color: #003b46;
+    color: #fff;
+    border-radius: 15%;
+    max-width: 95px;
+    margin-top: 10px;
+    transition: 0.2s all ease;
+}
+
+@media screen and (max-width: 1000px) {
+    .column {
+        width: 25%;
+        display: block;
+        margin-bottom: 20px;
+    }
+    .row {
+        margin: 0 auto;
+        align-items: center;
+    }
+}
