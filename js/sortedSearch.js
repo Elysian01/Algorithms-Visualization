@@ -81,6 +81,8 @@ async function binarySearch() {
         alert("Please Enter number you have to find");
     } else {
         document.getElementById("searchKey").disabled = true;
+        document.getElementById("search").disabled = true;
+
         blocks = document.querySelectorAll(".card");
         indexs = document.querySelectorAll(".index");
         // arr = arr.sort();
@@ -121,6 +123,7 @@ async function binarySearch() {
             window.scrollBy({ top: 500, behavior: "smooth" });
         }
         document.getElementById("searchKey").disabled = false;
+        document.getElementById("search").disabled = false;
         searchKey.value = "";
     }
 }
@@ -138,6 +141,8 @@ async function jumpSearch() {
         alert("Please Enter number you have to find");
     } else {
         document.getElementById("searchKey").disabled = true;
+        document.getElementById("search").disabled = true;
+
         while (arr[Math.min(jumpStep, n) - 1] < searchKey) {
             prev = jumpStep;
             blocks[prev].style.backgroundColor = "#5bc8ac";
@@ -186,6 +191,7 @@ async function jumpSearch() {
         }
         window.scrollBy({ top: 500, behavior: "smooth" });
         document.getElementById("searchKey").disabled = false;
+        document.getElementById("search").disabled = false;
         searchKey.value = "";
     }
 }
@@ -201,6 +207,8 @@ async function exponentSearch() {
         alert("Please Enter number you have to find");
     } else {
         document.getElementById("searchKey").disabled = true;
+        document.getElementById("search").disabled = true;
+
         if (arr[0] == searchKey) {
             blocks[0].style.backgroundColor = "#5bc8ac";
             indexs[0].style.backgroundColor = "#003b46";
@@ -289,6 +297,7 @@ async function iterativeBinarySearch(arr, left, right, searchKey) {
     }
     window.scrollBy({ top: 500, behavior: "smooth" });
     document.getElementById("searchKey").disabled = false;
+    document.getElementById("search").disabled = false;
     searchKey.value = "";
 }
 

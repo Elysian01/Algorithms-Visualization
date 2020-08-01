@@ -56,6 +56,8 @@ async function linearSearch() {
         alert("Please Enter number you have to find");
     } else {
         document.getElementById("searchKey").disabled = true;
+        document.getElementById("search").disabled = true;
+
         blocks = document.querySelectorAll(".card");
         indexs = document.querySelectorAll(".index");
         for (let i = 0; i < arr.length; i++) {
@@ -89,6 +91,7 @@ async function linearSearch() {
         }
         window.scrollBy({ top: 500, behavior: "smooth" });
         document.getElementById("searchKey").disabled = false;
+        document.getElementById("search").disabled = false;
         searchKey.value = "";
     }
 }
