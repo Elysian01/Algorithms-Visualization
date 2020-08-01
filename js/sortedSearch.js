@@ -83,6 +83,7 @@ async function binarySearch() {
         document.getElementById("searchKey").disabled = true;
         document.getElementById("search").disabled = true;
         document.getElementById("reset").disabled = true;
+        document.getElementById("visualize").disabled = true;
 
         blocks = document.querySelectorAll(".card");
         indexs = document.querySelectorAll(".index");
@@ -126,6 +127,7 @@ async function binarySearch() {
         document.getElementById("searchKey").disabled = false;
         document.getElementById("search").disabled = false;
         document.getElementById("reset").disabled = false;
+        document.getElementById("visualize").disabled = false;
         searchKey.value = "";
     }
 }
@@ -145,6 +147,7 @@ async function jumpSearch() {
         document.getElementById("searchKey").disabled = true;
         document.getElementById("search").disabled = true;
         document.getElementById("reset").disabled = true;
+        document.getElementById("visualize").disabled = true;
 
         while (arr[Math.min(jumpStep, n) - 1] < searchKey) {
             prev = jumpStep;
@@ -196,6 +199,7 @@ async function jumpSearch() {
         document.getElementById("searchKey").disabled = false;
         document.getElementById("search").disabled = false;
         document.getElementById("reset").disabled = false;
+        document.getElementById("visualize").disabled = false;
         searchKey.value = "";
     }
 }
@@ -213,6 +217,7 @@ async function exponentSearch() {
         document.getElementById("searchKey").disabled = true;
         document.getElementById("search").disabled = true;
         document.getElementById("reset").disabled = true;
+        document.getElementById("visualize").disabled = true;
 
         if (arr[0] == searchKey) {
             blocks[0].style.backgroundColor = "#5bc8ac";
@@ -304,6 +309,7 @@ async function iterativeBinarySearch(arr, left, right, searchKey) {
     document.getElementById("searchKey").disabled = false;
     document.getElementById("search").disabled = false;
     document.getElementById("reset").disabled = false;
+    document.getElementById("visualize").disabled = false;
     searchKey.value = "";
 }
 
