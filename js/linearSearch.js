@@ -57,6 +57,7 @@ async function linearSearch() {
     } else {
         document.getElementById("searchKey").disabled = true;
         document.getElementById("search").disabled = true;
+        document.getElementById("reset").disabled = true;
 
         blocks = document.querySelectorAll(".card");
         indexs = document.querySelectorAll(".index");
@@ -92,6 +93,8 @@ async function linearSearch() {
         window.scrollBy({ top: 500, behavior: "smooth" });
         document.getElementById("searchKey").disabled = false;
         document.getElementById("search").disabled = false;
+        document.getElementById("reset").disabled = false;
+
         searchKey.value = "";
     }
 }
