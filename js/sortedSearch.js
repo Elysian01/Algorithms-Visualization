@@ -80,9 +80,10 @@ async function binarySearch() {
     if (searchKey === "") {
         alert("Please Enter number you have to find");
     } else {
+        document.getElementById("searchKey").disabled = true;
         blocks = document.querySelectorAll(".card");
         indexs = document.querySelectorAll(".index");
-        arr = arr.sort();
+        // arr = arr.sort();
 
         while (left <= right) {
             mid = Math.floor((right + left) / 2);
@@ -119,6 +120,7 @@ async function binarySearch() {
             result.innerHTML = "Number not found ";
             window.scrollBy({ top: 500, behavior: "smooth" });
         }
+        document.getElementById("searchKey").disabled = false;
         searchKey.value = "";
     }
 }
@@ -135,6 +137,7 @@ async function jumpSearch() {
     if (searchKey === "") {
         alert("Please Enter number you have to find");
     } else {
+        document.getElementById("searchKey").disabled = true;
         while (arr[Math.min(jumpStep, n) - 1] < searchKey) {
             prev = jumpStep;
             blocks[prev].style.backgroundColor = "#5bc8ac";
@@ -182,6 +185,7 @@ async function jumpSearch() {
             result.innerHTML = "Number not found ";
         }
         window.scrollBy({ top: 500, behavior: "smooth" });
+        document.getElementById("searchKey").disabled = false;
         searchKey.value = "";
     }
 }
@@ -196,6 +200,7 @@ async function exponentSearch() {
     if (searchKey === "") {
         alert("Please Enter number you have to find");
     } else {
+        document.getElementById("searchKey").disabled = true;
         if (arr[0] == searchKey) {
             blocks[0].style.backgroundColor = "#5bc8ac";
             indexs[0].style.backgroundColor = "#003b46";
@@ -283,6 +288,7 @@ async function iterativeBinarySearch(arr, left, right, searchKey) {
         window.scrollBy({ top: 500, behavior: "smooth" });
     }
     window.scrollBy({ top: 500, behavior: "smooth" });
+    document.getElementById("searchKey").disabled = false;
     searchKey.value = "";
 }
 

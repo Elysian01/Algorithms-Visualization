@@ -55,6 +55,7 @@ async function linearSearch() {
     if (searchKey === "") {
         alert("Please Enter number you have to find");
     } else {
+        document.getElementById("searchKey").disabled = true;
         blocks = document.querySelectorAll(".card");
         indexs = document.querySelectorAll(".index");
         for (let i = 0; i < arr.length; i++) {
@@ -87,6 +88,7 @@ async function linearSearch() {
             result.innerHTML = "Number not found ";
         }
         window.scrollBy({ top: 500, behavior: "smooth" });
+        document.getElementById("searchKey").disabled = false;
         searchKey.value = "";
     }
 }
