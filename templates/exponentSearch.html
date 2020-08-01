@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="../img/logo.png" />
+    <link rel="stylesheet" href="../css/sortingStyles.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <title>Exponential Search</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li class="logo">Search Algo <span>Visualization</span></li>
+            <div class="items">
+                <li><a href="../index.html">Linear</a></li>
+                <li><a href="jumpSearch.html">Jump</a></li>
+                <li><a href="binarySearch.html">Binary</a></li>
+                <li>
+                    <a href="exponentSearch.html">Exponentional</a>
+                </li>
+            </div>
+        </ul>
+    </nav>
+    <br />
+    <h1 class="heading">Exponential Search [O(logn)]</h1>
+
+    <br /><br />
+    <div class="container flex-row">
+        <label for="elements">No. of Elements</label>
+        <select name="elements" id="elements">
+				<option value="10">10</option>
+				<option value="20">20</option>
+				<option value="30">30</option>
+			</select>
+        <label for="speed">Speed</label>
+        <select name="speed" id="speed">
+				<option value="1200">Slow</option>
+				<option value="750">Medium</option>
+				<option value="500">Fast</option>
+			</select>
+        <button class="info btn-shadow" id="visualize" onclick="visualize() ">
+				Set Visualize
+			</button>
+    </div>
+
+    <div class="container">
+        <input type="number" id="searchKey" class="number-input btn-lg" placeholder="Find Number" required />
+        <br />
+        <br />
+        <button class="success btn-lg btn-shadow" id="search" onclick="exponentSearch()">
+				Search
+			</button>
+        <button class="danger btn-lg btn-shadow" id="reset" onclick="sortResetArray() ">
+				Reset Array
+			</button>
+    </div>
+
+    <br /><br />
+
+    <div class="data-container">
+        <div class="row"></div>
+    </div>
+
+    <br /><br />
+
+    <div class="container">
+        <h1 class="result"></h1>
+    </div>
+
+    <script src="../js/sortedSearch.js "></script>
+</body>
+
+</html>

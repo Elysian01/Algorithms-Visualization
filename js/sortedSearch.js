@@ -17,6 +17,19 @@ function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+function linearSort(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] > arr[j]) {
+                let temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    return arr;
+}
+
 function sortResetArray() {
     arr = [];
     console.log("Array reset called !");
@@ -30,7 +43,7 @@ function sortResetArray() {
         indexs[i].style.backgroundColor = "#5bc8ac";
         indexs[i].style.color = "#003b46";
     }
-    arr = arr.sort();
+    arr = linearSort(arr);
     for (let i = 0; i < blocks.length; i++) {
         document.getElementById(i).innerText = arr[i];
     }
@@ -171,6 +184,106 @@ async function jumpSearch() {
         window.scrollBy({ top: 500, behavior: "smooth" });
         searchKey.value = "";
     }
+}
+
+async function exponentSearch() {
+    let found = false;
+    const searchKey = document.getElementById("searchKey").value;
+    blocks = document.querySelectorAll(".card");
+    indexs = document.querySelectorAll(".index");
+    const n = arr.length;
+
+    if (searchKey === "") {
+        alert("Please Enter number you have to find");
+    } else {
+        if (arr[0] == searchKey) {
+            blocks[0].style.backgroundColor = "#5bc8ac";
+            indexs[0].style.backgroundColor = "#003b46";
+            indexs[0].style.color = "#5bc8ac";
+
+            await new Promise((resolve) =>
+                setTimeout(() => {
+                    resolve();
+                }, delay)
+            );
+
+            index = 0;
+            result.style.display = "block";
+            result.innerHTML = `Number found at index : ${index}`;
+            found = true;
+            return 0;
+        }
+
+        let i = 1;
+
+        if (!found) {
+            while (i < n && arr[i] <= searchKey) {
+                i = i * 2;
+
+                if (i < n && arr[i] <= searchKey) {
+                    blocks[i].style.backgroundColor = "#5bc8ac";
+                    indexs[i].style.backgroundColor = "#003b46";
+                    indexs[i].style.color = "#5bc8ac";
+
+                    await new Promise((resolve) =>
+                        setTimeout(() => {
+                            resolve();
+                        }, delay)
+                    );
+
+                    if (arr[i] === searchKey) {
+                        result.style.display = "block";
+                        result.innerHTML = `Number found at index : ${i}`;
+                        return 0;
+                    }
+                }
+            }
+        }
+
+        iterativeBinarySearch(arr, i / 2, Math.min(i, n), searchKey);
+    }
+}
+
+async function iterativeBinarySearch(arr, left, right, searchKey) {
+    let found = false;
+    blocks = document.querySelectorAll(".card");
+    indexs = document.querySelectorAll(".index");
+    // arr = arr.sort();
+
+    while (left <= right) {
+        mid = Math.floor((right + left) / 2);
+        blocks[mid].style.backgroundColor = "#5bc8ac";
+        indexs[mid].style.backgroundColor = "#003b46";
+        indexs[mid].style.color = "#5bc8ac";
+
+        await new Promise((resolve) =>
+            setTimeout(() => {
+                resolve();
+            }, delay)
+        );
+
+        if (arr[mid] == searchKey) {
+            result.style.display = "block";
+            result.innerHTML = `Number found at index : ${mid}`;
+            found = true;
+            break;
+        } else if (searchKey < arr[mid]) {
+            right = mid - 1;
+        } else {
+            left = mid + 1;
+        }
+        blocks[mid].style.backgroundColor = "#003b46";
+        indexs[mid].style.backgroundColor = "#5bc8ac";
+        indexs[mid].style.color = "#003b46";
+    }
+
+    if (!found) {
+        result.style.display = "block";
+        result.innerHTML = "Number not found ";
+        window.scrollBy({ top: 500, behavior: "smooth" });
+    }
+    window.scrollBy({ top: 500, behavior: "smooth" });
+    searchKey.value = "";
 }
 
 window.onload = () => {
