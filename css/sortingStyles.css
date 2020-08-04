@@ -22,6 +22,26 @@
     text-align: center;
 }
 
+
+/* 
+.flex-column {
+    display: flex;
+    flex-direction: row;
+}
+
+.notes {
+    margin-left: 50px;
+    max-height: 350px;
+    max-width: 300px;
+    text-align: left;
+    justify-content: center;
+    margin-left: 100px;
+    background-color: #00bcd4;
+    padding: 30px 10px;
+    border-radius: 30px;
+    box-shadow: 0 1px 25px 4px #003b46;
+} */
+
 .number-input {
     width: 60%;
     max-width: 800px;
@@ -51,6 +71,7 @@ select {
     justify-content: center;
     text-align: center;
     margin: 5px;
+    width: 100%;
 }
 
 .danger {
