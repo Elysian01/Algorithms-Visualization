@@ -151,17 +151,20 @@ async function jumpSearch() {
 
         while (arr[Math.min(jumpStep, n) - 1] < searchKey) {
             prev = jumpStep;
-            blocks[prev].style.backgroundColor = "#5bc8ac";
-            indexs[prev].style.backgroundColor = "#003b46";
-            indexs[prev].style.color = "#5bc8ac";
+            if (prev < arr.length) {
+                blocks[prev].style.backgroundColor = "#5bc8ac";
+                indexs[prev].style.backgroundColor = "#003b46";
+                indexs[prev].style.color = "#5bc8ac";
+            }
 
             await new Promise((resolve) =>
                 setTimeout(() => {
                     resolve();
                 }, delay)
             );
+            console.log(jumpStep);
 
-            jumpStep += jumpStep;
+            jumpStep += Math.floor(Math.sqrt(n));
             if (prev >= n) {
                 break;
             }
@@ -271,14 +274,14 @@ async function iterativeBinarySearch(arr, left, right, searchKey) {
     let found = false;
     blocks = document.querySelectorAll(".card");
     indexs = document.querySelectorAll(".index");
-    // arr = arr.sort();
 
     while (left <= right) {
         mid = Math.floor((right + left) / 2);
-        blocks[mid].style.backgroundColor = "#5bc8ac";
-        indexs[mid].style.backgroundColor = "#003b46";
-        indexs[mid].style.color = "#5bc8ac";
-
+        if (mid < arr.length) {
+            blocks[mid].style.backgroundColor = "#5bc8ac";
+            indexs[mid].style.backgroundColor = "#003b46";
+            indexs[mid].style.color = "#5bc8ac";
+        }
         await new Promise((resolve) =>
             setTimeout(() => {
                 resolve();
@@ -295,10 +298,13 @@ async function iterativeBinarySearch(arr, left, right, searchKey) {
         } else {
             left = mid + 1;
         }
-        blocks[mid].style.backgroundColor = "#003b46";
-        indexs[mid].style.backgroundColor = "#5bc8ac";
-        indexs[mid].style.color = "#003b46";
+        if (mid < arr.length) {
+            blocks[mid].style.backgroundColor = "#003b46";
+            indexs[mid].style.backgroundColor = "#5bc8ac";
+            indexs[mid].style.color = "#003b46";
+        }
     }
+    console.log(found);
 
     if (!found) {
         result.style.display = "block";
