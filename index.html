@@ -2,96 +2,78 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="icon" href="img/logo.png" />
-    <link rel="stylesheet" href="css/sortingStyles.css" />
-    <link rel="stylesheet" href="css/navbar.css" />
-    <title>Linear Search</title>
+	<link rel="icon" href="img/logo.png" />
+	<link rel="stylesheet" href="css/sortingStyles.css" />
+	<link rel="stylesheet" href="css/navbar.css" />
+	<title>Linear Search</title>
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li class="logo">Search Algo <span>Visualization</span></li>
-            <div class="items">
-                <li><a href="index.html">Linear</a></li>
-                <li><a href="templates/jumpSearch.html">Jump</a></li>
-                <li>
-                    <a href="templates/binarySearch.html">Binary</a>
-                </li>
-                <li>
-                    <a href="templates/jumpSearch.html">Exponentional</a
-						>
-					</li>
-				</div>
-			</ul>
-		</nav>
+	<nav>
+		<ul>
+			<li class="logo">Search Algo <span>Visualization</span></li>
+			<div class="items">
+				<li><a href="index.html">Linear</a></li>
+				<li><a href="templates/jumpSearch.html">Jump</a></li>
+				<li>
+					<a href="templates/binarySearch.html">Binary</a>
+				</li>
+				<li>
+					<a href="templates/exponentSearch.html">Exponentional</a>
+				</li>
+			</div>
+		</ul>
+	</nav>
+	<br />
+	<h1 class="heading">Linear Search [O(n)]</h1>
+
+	<br /><br />
+	<div class="container flex-row">
+		<label for="elements">No. of Elements</label>
+		<select name="elements" id="elements">
+			<option value="10">10</option>
+			<option value="20">20</option>
+			<option value="30">30</option>
+		</select>
+		<label for="speed">Speed</label>
+		<select name="speed" id="speed">
+			<option value="1200">Slow</option>
+			<option value="750">Medium</option>
+			<option value="500">Fast</option>
+		</select>
+		<button class="info btn-shadow" id="visualize" onclick="visualize() ">
+			Set Visualize
+		</button>
+	</div>
+
+	<div class="container">
+		<input type="number" id="searchKey" class="number-input btn-lg" placeholder="Find Number" required />
 		<br />
-		<h1 class="heading">Linear Search [O(n)]</h1>
+		<br />
+		<button class="success btn-lg btn-shadow" id="search" onclick="linearSearch()">
+			Search
+		</button>
+		<button class="danger btn-lg btn-shadow" id="reset" onclick="resetArray() ">
+			Reset Array
+		</button>
+	</div>
 
-		<br /><br />
-		<div class="container flex-row">
-			<label for="elements">No. of Elements</label>
-			<select name="elements" id="elements">
-				<option value="10">10</option>
-				<option value="20">20</option>
-				<option value="30">30</option>
-			</select>
-			<label for="speed">Speed</label>
-			<select name="speed" id="speed">
-				<option value="1200">Slow</option>
-				<option value="750">Medium</option>
-				<option value="500">Fast</option>
-			</select>
-			<button
-				class="info btn-shadow"
-				id="visualize"
-				onclick="visualize() "
-			>
-				Set Visualize
-			</button>
-		</div>
+	<br /><br />
 
-		<div class="container">
-			<input
-				type="number"
-				id="searchKey"
-				class="number-input btn-lg"
-				placeholder="Find Number"
-				required
-			/>
-			<br />
-			<br />
-			<button
-				class="success btn-lg btn-shadow"
-				id="search"
-				onclick="linearSearch()"
-			>
-				Search
-			</button>
-			<button
-				class="danger btn-lg btn-shadow"
-				id="reset"
-				onclick="resetArray() "
-			>
-				Reset Array
-			</button>
-		</div>
+	<div class="data-container">
+		<div class="row"></div>
+	</div>
 
-		<br /><br />
+	<br /><br />
 
-		<div class="data-container">
-			<div class="row"></div>
-		</div>
+	<div class="container">
+		<h1 class="result"></h1>
+	</div>
 
-		<br /><br />
+	<script src="js/linearSearch.js "></script>
+</body>
 
-		<div class="container">
-			<h1 class="result"></h1>
-		</div>
-
-		<script src="js/linearSearch.js "></script>
-	</body>
 </html>
