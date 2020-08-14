@@ -135,6 +135,7 @@ select {
     border-radius: 15%;
     max-width: 95px;
     margin-top: 10px;
+    margin-right: 10px;
     transition: 0.2s all ease;
 }
 
@@ -144,6 +145,7 @@ select {
         display: block;
         margin-bottom: 20px;
     }
+
     .row {
         margin: 0 auto;
         align-items: center;

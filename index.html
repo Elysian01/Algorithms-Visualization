@@ -2,78 +2,75 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-	<link rel="icon" href="img/logo.png" />
-	<link rel="stylesheet" href="css/sortingStyles.css" />
-	<link rel="stylesheet" href="css/navbar.css" />
-	<title>Linear Search</title>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://kit.fontawesome.com/a658a7b479.js" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="css/styles.css">
+     <link rel="icon" href="img/logo.png" />
+     <title>Algorithm Visualization</title>
 </head>
 
 <body>
-	<nav>
-		<ul>
-			<li class="logo">Search Algo <span>Visualization</span></li>
-			<div class="items">
-				<li><a href="index.html">Linear</a></li>
-				<li><a href="templates/jumpSearch.html">Jump</a></li>
-				<li>
-					<a href="templates/binarySearch.html">Binary</a>
-				</li>
-				<li>
-					<a href="templates/exponentSearch.html">Exponentional</a>
-				</li>
-			</div>
-		</ul>
-	</nav>
-	<br />
-	<h1 class="heading">Linear Search [O(n)]</h1>
+     <nav>
+          <div class='logo'><a href='index.html'>Algo<span>Visualization </span></a></div>
 
-	<br /><br />
-	<div class="container flex-row">
-		<label for="elements">No. of Elements</label>
-		<select name="elements" id="elements">
-			<option value="10">10</option>
-			<option value="20">20</option>
-			<option value="30">30</option>
-		</select>
-		<label for="speed">Speed</label>
-		<select name="speed" id="speed">
-			<option value="1200">Slow</option>
-			<option value="750">Medium</option>
-			<option value="500">Fast</option>
-		</select>
-		<button class="info btn-shadow" id="visualize" onclick="visualize() ">
-			Set Visualize
-		</button>
-	</div>
+          <label for='btn' class='icon'>
+               <span class='fa fa-bars'></span>
+          </label>
+          <input type='checkbox' id='btn' style="display: none;">
+          <ul>
+               <li><a href='index.html'>Home</a></li>
+               <li><a href='#'>Pathfinding</a></li>
+               <li><a href='./templates/linearSearch.html'>Searching</a></li>
+               <li><a href='#'>Sorting</a></li>
+          </ul>
+     </nav>
+     <br>
+     <h1 class="container"><i class="fas fa-graduation-cap"></i> Explore Awesome Algorithms !</h1>
 
-	<div class="container">
-		<input type="number" id="searchKey" class="number-input btn-lg" placeholder="Find Number" required />
-		<br />
-		<br />
-		<button class="success btn-lg btn-shadow" id="search" onclick="linearSearch()">
-			Search
-		</button>
-		<button class="danger btn-lg btn-shadow" id="reset" onclick="resetArray() ">
-			Reset Array
-		</button>
-	</div>
+     <br>
+     <div class="card-deck">
+          <div class="card">
+               <img class="card-image" src="./img/sort2.gif" alt="Sorting image">
+               <div class="container">
+                    <div class="card-title">
+                         <h2>Sorting Algorithms</h2>
+                    </div>
+                    <div class="card-buttons">
+                         <button class="btn-primary">Tutorials</button>
+                         <button class="btn-danger">Visualize</button>
+                    </div>
+               </div>
+               <br>
+          </div>
+          <div class="card">
+               <img class="card-image" src="./img/pathfinding.gif" alt="Pathfinding image">
+               <div class="container">
+                    <div class="card-title">
+                         <h2>Pathfinding Algorithms</h2>
+                    </div>
+                    <div class="card-buttons">
+                         <button class="btn-primary">Tutorials</button>
+                         <button class="btn-danger">Visualize</button>
+                    </div>
+               </div>
+               <br>
+          </div>
+          <div class="card">
+               <img class="card-image" src="./img/avl.gif" alt="Searching image">
+               <div class="container">
+                    <div class="card-title">
+                         <h2>Searching Algorithms</h2>
+                    </div>
+                    <div class="card-buttons">
+                         <button class="btn-primary">Tutorials</button>
+                         <button class="btn-danger">Visualize</button>
+                    </div>
+               </div>
+               <br>
+          </div>
+     </div>
 
-	<br /><br />
-
-	<div class="data-container">
-		<div class="row"></div>
-	</div>
-
-	<br /><br />
-
-	<div class="container">
-		<h1 class="result"></h1>
-	</div>
-
-	<script src="js/linearSearch.js "></script>
 </body>
 
 </html>
