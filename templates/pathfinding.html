@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <meta charset="UTF-8"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <link rel="stylesheet" href="../css/pathfinding.css">
+    <link rel="icon" href="../img/logo.png" />
+    <title>Pathfinding Visualization</title>
+</head>
+
+<body>
+
+    <header class="container">
+        <h1>Pathfinding Algorithms </h1>
+    </header>
+
+    <div class="container">
+        <select name="algo" id="algo" class="btn-dark">
+            <option value="bfs">BREADTH FIRST SEARCH</option>
+            <option value="dfs">DEPTH FIRST SEARCH</option>
+            <option value="astar">A STAR</option>
+            <option value="dijkstra">DIJKSTRA</option>
+            <option value="bidir">BIDIRECTIONAL</option>
+        </select>
+
+        <button class="btn-primary">VISUALIZE</button>
+        <button class="btn-primary">RANDOM WALL MAZE</button>
+        <button class="btn-primary">RECTANGULAR MAZE</button>
+        <button class="btn-primary">CLEAR PATH</button>
+        <button class="btn-danger">RESET</button>
+
+    </div>
+
+    <br><br>
+    <div class="container">
+        <canvas id="main-canvas" width="1200" height="391"></canvas>
+    </div>
+
+
+    <script src="../js/pathfinding/sketch.js"></script>
+    <script src="../js/pathfinding/classes/board.js"></script>
+    <script src="../js/pathfinding/init.js"></script>
+
+    <!-- <script src="../js/pathfinding/classes/cell.js"></script> -->
+    <script src="../js/pathfinding/maze/random.js"></script>
+
+
+</body>
+
+</html>
