@@ -11,8 +11,12 @@ for (let c = 0; c < columns; c++) {
 
 boundX = 0;
 boundY = 0;
-tiles[15][8].state = 's';
-tiles[35][8].state = "f"
+tiles[startY][startX].state = "s";
+tiles[endY][endX].state = "f"
+
+function setWall(c, r) {
+    tiles[c][r].state = "w";
+}
 
 
 function rect(x, y, w, h, state) {
@@ -32,15 +36,27 @@ function rect(x, y, w, h, state) {
     ctx.fill();
 }
 
+function reset() {
+    for (let c = 0; c < columns; c++) {
+        for (let r = 0; r < rows; r++) {
+            if (tiles[c][r].state == "w") {
+                tiles[c][r].state = "e";
+            }
+        }
+    }
+    tiles[startY][startX].state = "s";
+    tiles[endY][endX].state = "f"
+}
+
 function clear() {
     ctx.clearRect(0, 0, width, height);
 }
 
 async function draw() {
-    this.clear();
+    clear();
     for (let c = 0; c < columns; c++) {
         for (let r = 0; r < rows; r++) {
-            this.rect(tiles[c][r].x, tiles[c][r].y, tileW, tileH, tiles[c][r].state)
+            rect(tiles[c][r].x, tiles[c][r].y, tileW, tileH, tiles[c][r].state)
         }
     }
 }
