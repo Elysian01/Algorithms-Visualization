@@ -86,6 +86,30 @@ nav ul li a:hover {
     box-shadow: 0 0 5px #33ffff, 0 0 10px #66ffff;
 }
 
+.mobile-logo {
+    display: none;
+}
+
+@media only screen and (max-width: 1100px) {
+    .logo {
+        display: none;
+    }
+    .mobile-logo {
+        display: block;
+        background-color: #1b1b1b;
+        min-width: 1200px;
+        text-align: center;
+        border: none;
+        outline: none;
+    }
+    .mobile-logo span {
+        color: #66ffff;
+    }
+    .container {
+        min-width: 1200px;
+    }
+}
+
 
 /*
 NavBar completed
