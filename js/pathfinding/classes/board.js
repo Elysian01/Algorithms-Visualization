@@ -18,6 +18,15 @@ function setWall(c, r) {
     tiles[c][r].state = "w";
 }
 
+function setEmpty(c, r) {
+    tiles[c][r].state = "e";
+}
+
+function drawStartAndEnd() {
+    tiles[startY][startX].state = "s";
+    tiles[endY][endX].state = "f"
+}
+
 
 function rect(x, y, w, h, state) {
 

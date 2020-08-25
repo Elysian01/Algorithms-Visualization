@@ -6,6 +6,7 @@ let rows = 17;
 let columns = 42;
 const fps = 75;
 var probability = 0.4;
+var leaveSomeEmptyProb = 0.3; // For Rectangular maze
 
 const tileW = 25;
 const tileH = 25;

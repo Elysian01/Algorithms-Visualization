@@ -26,35 +26,35 @@
             <li>
                 <a href="#">
                     <select name="algo" id="algo" onchange="algoChange()">
-						<option value="" disabled selected>Choose Algorithm</option>
-						<option value=" bfs">
-							BREADTH FIRST SEARCH
-						</option>
-						<option value="dfs">
-							DEPTH FIRST SEARCH
-						</option>
-						<option value="astar">A STAR</option>
-						<option value="dijkstra">DIJKSTRA</option>
-						<option value="bidir">BIDIRECTIONAL</option>
-					</select>
+                        <option value="" disabled selected>Choose Algorithm</option>
+                        <option value=" bfs">
+                            BREADTH FIRST SEARCH
+                        </option>
+                        <option value="dfs">
+                            DEPTH FIRST SEARCH
+                        </option>
+                        <option value="astar">A STAR</option>
+                        <option value="dijkstra">DIJKSTRA</option>
+                        <option value="bidir">BIDIRECTIONAL</option>
+                    </select>
                 </a>
             </li>
             <li>
                 <a href="#"><button id="visualize" style="color: aqua">
-						VISUALIZE
-					</button></a>
+                        VISUALIZE
+                    </button></a>
             </li>
 
             <li>
                 <a href="#"><button id="rectangular-maze">
-						RECTANGULAR MAZE
-					</button></a>
+                        RECTANGULAR MAZE
+                    </button></a>
             </li>
 
             <li>
                 <a href="#"><button id="random-maze">
-						RANDOM WALL MAZE
-					</button></a>
+                        RANDOM WALL MAZE
+                    </button></a>
             </li>
 
             <li>
@@ -63,8 +63,8 @@
 
             <li>
                 <a href="#"><button id="reset" style="color: red">
-						RESET
-					</button></a>
+                        RESET
+                    </button></a>
             </li>
         </ul>
     </nav>
@@ -80,6 +80,7 @@
         <canvas id="main-canvas" width="1200" height="501"></canvas>
     </div>
 
+    <script src="../js/pathfinding/utils.js"></script>
     <script src="../js/pathfinding/sketch.js"></script>
     <script src="../js/pathfinding/classes/board.js"></script>
     <script src="../js/pathfinding/maze/randomMaze.js"></script>
