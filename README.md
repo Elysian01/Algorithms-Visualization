@@ -1,6 +1,6 @@
 # Algorithm-Visualization
 
-### <a href = "https://elysian01.github.io/Algorithm-Visualization/"> Click here </a> to view website
+### <a href = "https://elysian01.github.io/Algorithms-Visualization/"> Click here </a> to view website
 
 ## Pathfinding Algorithms
 
