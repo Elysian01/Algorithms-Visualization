@@ -11,20 +11,20 @@ async function visitNode(node, parent) {
     sleep(2500 / fps).then(() => {
         setVisited(c, r);
     });
-    await sleep(2000 / fps); // Don't Messs with this value, or everything will crash
+    await sleep(3000 / fps); // Don't Messs with this value, or everything will crash
 }
 
 // Drawing the shortest path from end to beginning
 // this should be called ONLY IF the path exists
 async function drawPath() {
     let path = [];
-    let count = 200;
+    let count = 500;
 
     drawStartAndEnd();
     let current = end;
 
     // from end to beginning
-    console.log(path)
+
     while (current != start && count != 0) {
         path.unshift(current);
         current = current.parent;
@@ -32,11 +32,15 @@ async function drawPath() {
         count -= 1;
     }
     path.unshift(start);
-    console.log(path)
+
     for (let i = 1; i < path.length; i++) {
         if (path[i].state != "f") {
             path[i].state = "p"
         }
         await sleep(1000 / fps);
+    }
+
+    if (count == 0) {
+        displayResult.innerHTML = "Path is possible,But shown path maybe wrong ."
     }
 }

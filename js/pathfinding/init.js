@@ -25,6 +25,7 @@ async function visualize() {
         await breadthFirstSearch();
     } else if (algoName == "dfs") {
         console.log(algoName);
+        await depthFirstSearch();
     } else if (algoName == "astar") {
         //astar
     } else if (algoName == "dijkstra") {
