@@ -5,8 +5,8 @@ Contains all the variables and initialization
 let rows = 17;
 let columns = 42;
 const fps = 75;
-var probability = 0.4;
-var leaveSomeEmptyProb = 0.3; // For Rectangular maze
+var probability = 0.35; // higher prob  = more walls
+var leaveSomeEmptyProb = 0.35; // For Rectangular maze
 
 let scale = 25;
 let offset = 2.5;
@@ -43,8 +43,7 @@ const diagonals = false;
 let interrupt = false;
 let doingSomething = false;
 
-
 // Async sleep function
 function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise((resolve) => setTimeout(resolve, ms));
 }

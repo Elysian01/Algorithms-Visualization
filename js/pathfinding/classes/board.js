@@ -116,7 +116,7 @@ function getNeighbors(node) {
         // console.log(c, r - 1);
         neighbors.push([c, r - 1])
     }
-    if (c != columns) {
+    if (c != columns - 1) {
         // console.log(c + 1, r);
         neighbors.push([c + 1, r])
     }
@@ -139,8 +139,6 @@ function getNeighbors(node) {
             neighbors.push([c - 1, r + 1]);
         }
     }
-
-
 
     return neighbors;
 

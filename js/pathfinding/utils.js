@@ -7,28 +7,33 @@ async function visitNode(node, parent) {
     c = node.x / (tileW + tileMargin);
     r = node.y / (tileH + tileMargin);
     tiles[c][r].parent = parent;
+    await sleep(100 / fps);
     sleep(2500 / fps).then(() => {
         setVisited(c, r);
     });
-    await sleep(1000 / fps);
+    await sleep(2000 / fps); // Don't Messs with this value, or everything will crash
 }
 
 // Drawing the shortest path from end to beginning
 // this should be called ONLY IF the path exists
 async function drawPath() {
-    // end
     let path = [];
+    let count = 200;
+
+    drawStartAndEnd();
     let current = end;
-    console.log(current)
 
     // from end to beginning
-    while (current != start) {
+    console.log(path)
+    while (current != start && count != 0) {
         path.unshift(current);
         current = current.parent;
+        console.log(current)
+        count -= 1;
     }
     path.unshift(start);
     console.log(path)
-    for (let i = 1; i < path.length && !interrupt; i++) {
+    for (let i = 1; i < path.length; i++) {
         if (path[i].state != "f") {
             path[i].state = "p"
         }
