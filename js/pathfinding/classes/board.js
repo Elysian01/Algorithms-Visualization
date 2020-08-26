@@ -4,7 +4,8 @@ for (let c = 0; c < columns; c++) {
         tiles[c][r] = {
             x: c * (tileW + tileMargin),
             y: r * (tileH + tileMargin),
-            state: 'e'
+            state: 'e',
+            parent: false
         }
     }
 }
@@ -14,9 +15,22 @@ boundY = 0;
 tiles[startY][startX].state = "s";
 tiles[endY][endX].state = "f"
 
+start = tiles[startY][startX];
+end = tiles[endY][endX];
+
+
 function setWall(c, r) {
     tiles[c][r].state = "w";
 }
+
+function setVisited(c, r) {
+    tiles[c][r].state = "v";
+}
+
+function setDiscovered(c, r) {
+    tiles[c][r].state = "d";
+}
+
 
 function setEmpty(c, r) {
     tiles[c][r].state = "e";
@@ -30,14 +44,19 @@ function drawStartAndEnd() {
 
 function rect(x, y, w, h, state) {
 
+    ctx.lineWidth = 1;
     if (state == 'e') {
         ctx.fillStyle = defaultColor;
     } else if (state == 'f') {
         ctx.fillStyle = endPointColor;
     } else if (state == 'w') {
         ctx.fillStyle = wallColor;
-    } else {
+    } else if (state == "s") {
         ctx.fillStyle = startPointColor;
+    } else if (state == "v") {
+        ctx.fillStyle = visitedColor;
+    } else if (state == "p") {
+        ctx.fillStyle = pathColor;
     }
     ctx.beginPath();
     ctx.rect(x, y, w, h);
@@ -48,13 +67,25 @@ function rect(x, y, w, h, state) {
 function reset() {
     for (let c = 0; c < columns; c++) {
         for (let r = 0; r < rows; r++) {
-            if (tiles[c][r].state == "w") {
+            if (tiles[c][r].state == "w" || tiles[c][r].state == "v" || tiles[c][r].state == "p") {
                 tiles[c][r].state = "e";
             }
         }
     }
     tiles[startY][startX].state = "s";
-    tiles[endY][endX].state = "f"
+    tiles[endY][endX].state = "f";
+    displayResult.innerHTML = "";
+}
+
+function clearPath() {
+    for (let c = 0; c < columns; c++) {
+        for (let r = 0; r < rows; r++) {
+            if (tiles[c][r].state == "v" || tiles[c][r].state == "p") {
+                tiles[c][r].state = "e";
+            }
+            tiles[c][r].parent = false;
+        }
+    }
 }
 
 function clear() {
@@ -69,6 +100,53 @@ async function draw() {
         }
     }
 }
+
+function getNeighbors(node) {
+
+    c = node.x / (tileW + tileMargin);
+    r = node.y / (tileH + tileMargin);
+
+    let neighbors = []
+
+    if (r != rows - 1) {
+        // console.log(c, r + 1);
+        neighbors.push([c, r + 1])
+    }
+    if (r > 0) {
+        // console.log(c, r - 1);
+        neighbors.push([c, r - 1])
+    }
+    if (c != columns) {
+        // console.log(c + 1, r);
+        neighbors.push([c + 1, r])
+    }
+    if (c > 0) {
+        // console.log(c - 1, r);
+        neighbors.push([c - 1, r])
+    }
+
+    if (diagonals) {
+        if (r != 0 && c != columns - 1) {
+            neighbors.push([c + 1, r - 1]);
+        }
+        if (r != rows - 1 && c != columns - 1) {
+            neighbors.push([c + 1, r + 1]);
+        }
+        if (r != 0 && c != 0) {
+            neighbors.push([c - 1, r - 1]);
+        }
+        if (r != rows - 1 && c != 0) {
+            neighbors.push([c - 1, r + 1]);
+        }
+    }
+
+
+
+    return neighbors;
+
+}
+
+
 
 async function mouseDown(e) {
 

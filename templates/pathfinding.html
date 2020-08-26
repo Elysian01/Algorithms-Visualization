@@ -2,9 +2,6 @@
 <html lang="en">
 
 <head>
-    <!-- <meta charset="UTF-8"> -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-
     <script src="https://kit.fontawesome.com/a658a7b479.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/pathfinding.css" />
     <link rel="icon" href="../img/logo.png" />
@@ -27,7 +24,7 @@
                 <a href="#">
                     <select name="algo" id="algo" onchange="algoChange()">
                         <option value="" disabled selected>Choose Algorithm</option>
-                        <option value=" bfs">
+                        <option value="bfs">
                             BREADTH FIRST SEARCH
                         </option>
                         <option value="dfs">
@@ -80,14 +77,17 @@
         <canvas id="main-canvas" width="1200" height="501"></canvas>
     </div>
 
-    <script src="../js/pathfinding/utils.js"></script>
+    <h2 class="container" id="result"></h2>
+
+
     <script src="../js/pathfinding/sketch.js"></script>
     <script src="../js/pathfinding/classes/board.js"></script>
+    <script src="../js/pathfinding/algorithms/bfs.js"></script>
     <script src="../js/pathfinding/maze/randomMaze.js"></script>
     <script src="../js/pathfinding/maze/recursiveDivision.js"></script>
+    <script src="../js/pathfinding/utils.js"></script>
     <script src="../js/pathfinding/init.js"></script>
 
-    <!-- <script src="../js/pathfinding/classes/cell.js"></script> -->
 </body>
 
 </html>
