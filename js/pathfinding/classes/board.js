@@ -49,7 +49,9 @@ function rect(x, y, w, h, state) {
     j = y / (tileH + tileMargin);
 
     ctx.lineWidth = 1;
-    if (state == 'e') {
+    if (tiles[i][j].weight == 5) {
+        ctx.fillStyle = weightColor;
+    } else if (state == 'e') {
         ctx.fillStyle = defaultColor;
     } else if (state == 'f') {
         ctx.fillStyle = endPointColor;
@@ -75,6 +77,7 @@ function reset() {
             if (tiles[c][r].state == "w" || tiles[c][r].state == "v" || tiles[c][r].state == "p") {
                 tiles[c][r].state = "e";
             }
+            tiles[c][r].weight = 10;
         }
     }
     tiles[startY][startX].state = "s";
@@ -164,7 +167,9 @@ async function mouseDown(e) {
             if (x > c * (tileW + tileMargin) && x < c * (tileW + tileMargin) + tileW &&
                 y > r * (tileH + tileMargin) && y < r * (tileH + tileMargin) + tileH) {
 
-                if (tiles[c][r].state == "e") {
+                if (inputWeight && (c != boundX || r != boundY)) {
+                    tiles[c][r].weight = 5;
+                } else if (tiles[c][r].state == "e") {
                     tiles[c][r].state = "w"
                     boundX = c;
                     boundY = r;
@@ -188,7 +193,9 @@ function mouseDrag(e) {
             if (x > c * (tileW + tileMargin) && x < c * (tileW + tileMargin) + tileW &&
                 y > r * (tileH + tileMargin) && y < r * (tileH + tileMargin) + tileH) {
 
-                if (tiles[c][r].state == "e" && (c != boundX || r != boundY)) {
+                if (inputWeight && (c != boundX || r != boundY)) {
+                    tiles[c][r].weight = 5;
+                } else if (tiles[c][r].state == "e" && (c != boundX || r != boundY)) {
                     tiles[c][r].state = "w";
                     boundX = c;
                     boundY = r;
