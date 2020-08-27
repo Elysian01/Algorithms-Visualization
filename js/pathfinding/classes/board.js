@@ -91,6 +91,7 @@ function clearPath() {
             tiles[c][r].parent = false;
         }
     }
+    displayResult.innerHTML = "";
 }
 
 function clear() {

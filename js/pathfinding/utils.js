@@ -3,6 +3,48 @@ function randInt(low, high) {
     return Math.floor(Math.random() * (high - low)) + low;
 }
 
+function checkSearchAlredyImplemented() {
+    for (let c = 0; c < columns; c++) {
+        for (let r = 0; r < rows; r++) {
+            if (tiles[c][r].state == "v" || tiles[c][r].state == "p") {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+function disableButtons() {
+    //reset grid and clear Path
+    document.getElementById("reset").disabled = true;
+    document.getElementById("clear").disabled = true;
+
+    // Maze
+    document.getElementById("random-maze").disabled = true;
+    document.getElementById("rectangular-maze").disabled = true
+
+    // Visualize Button
+    document.getElementById("visualize").disabled = true;
+    document.getElementById("algo").disabled = true;
+
+
+}
+
+function enableButtons() {
+    //reset grid and clear Path
+    document.getElementById("reset").disabled = false;
+    document.getElementById("clear").disabled = false;
+
+    // Maze
+    document.getElementById("random-maze").disabled = false;
+    document.getElementById("rectangular-maze").disabled = false
+
+    // Visualize Button
+    document.getElementById("visualize").disabled = false;
+    document.getElementById("algo").disabled = false;
+
+}
+
 async function visitNode(node, parent) {
     c = node.x / (tileW + tileMargin);
     r = node.y / (tileH + tileMargin);
@@ -64,3 +106,45 @@ async function drawPath() {
         displayResult.innerHTML = "Path is possible,But shown path maybe wrong ."
     }
 }
+
+// Notations
+
+const notationBox1 = document.getElementById("notation-box1");
+const ctxnotationBox1 = notationBox1.getContext("2d");
+ctxnotationBox1.fillStyle = startPointColor;
+ctxnotationBox1.beginPath();
+ctxnotationBox1.rect(10, 10, 30, 30);
+ctxnotationBox1.closePath();
+ctxnotationBox1.fill();
+
+const notationBox2 = document.getElementById("notation-box2");
+const ctxnotationBox2 = notationBox2.getContext("2d");
+ctxnotationBox2.fillStyle = endPointColor;
+ctxnotationBox2.beginPath();
+ctxnotationBox2.rect(10, 10, 30, 30);
+ctxnotationBox2.closePath();
+ctxnotationBox2.fill();
+
+const notationBox3 = document.getElementById("notation-box3");
+const ctxnotationBox3 = notationBox3.getContext("2d");
+ctxnotationBox3.fillStyle = wallColor;
+ctxnotationBox3.beginPath();
+ctxnotationBox3.rect(10, 10, 30, 30);
+ctxnotationBox3.closePath();
+ctxnotationBox3.fill();
+
+const notationBox4 = document.getElementById("notation-box4");
+const ctxnotationBox4 = notationBox4.getContext("2d");
+ctxnotationBox4.fillStyle = visitedColor;
+ctxnotationBox4.beginPath();
+ctxnotationBox4.rect(10, 10, 30, 30);
+ctxnotationBox4.closePath();
+ctxnotationBox4.fill();
+
+const notationBox5 = document.getElementById("notation-box5");
+const ctxnotationBox5 = notationBox5.getContext("2d");
+ctxnotationBox5.fillStyle = pathColor;
+ctxnotationBox5.beginPath();
+ctxnotationBox5.rect(10, 10, 30, 30);
+ctxnotationBox5.closePath();
+ctxnotationBox5.fill();

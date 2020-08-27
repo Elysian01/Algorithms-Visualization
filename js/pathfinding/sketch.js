@@ -28,16 +28,13 @@ let height = canvas.height;
 const ctx = canvas.getContext("2d");
 
 const endPointColor = "#ff304f"; // red
-const startPointColor = "#FFC60B"; // light green
+const startPointColor = "#FFC60B"; // gold
 const wallColor = "#343837"; // dark gray
 const defaultColor = "#E0E0E0"; // light gray
 
 const visitedColor = "#05DFD7"; // sky
-const discoveredColor = "#02066F"; // purple
-const defaultBorder = "#247AFD"; // blue
-
 const pathColor = "#40ff00"; // light green
-const pathLineColor = "#ff304f"; // red
+
 
 // user controls this using a button
 const diagonals = false;

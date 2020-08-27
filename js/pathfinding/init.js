@@ -18,27 +18,45 @@ document.getElementById("visualize").addEventListener("click", visualize);
 
 async function visualize() {
     let algoName = document.getElementById("algo").value;
-    if (algoName === "") {
-        alert("Please Choose the Algorithm First !");
-    } else if (algoName == "bfs") {
-        console.log(algoName);
-        await breadthFirstSearch();
-    } else if (algoName == "dfs") {
-        console.log(algoName);
-        await depthFirstSearch();
-    } else if (algoName == "best") {
-        console.log(algoName);
-        await initializeHeuristics();
-        await bestFirstSearch();
-    } else if (algoName == "astar") {
-        console.log(algoName);
-        await initializeHeuristics();
-    } else if (algoName == "dijkstra") {
-        console.log(algoName);
-        await initializeHeuristics();
-    } else if (algoName == "bidir") {
-        console.log(algoName);
-        await initializeHeuristics();
+
+    let Search = checkSearchAlredyImplemented();
+
+    if (Search) {
+        alert("Please Clear The Path First !")
+    } else {
+        if (algoName === "") {
+            alert("Please Choose the Algorithm First !");
+        } else if (algoName == "bfs") {
+            console.log(algoName);
+            disableButtons();
+            await breadthFirstSearch();
+            enableButtons();
+        } else if (algoName == "dfs") {
+            console.log(algoName);
+            disableButtons();
+            await depthFirstSearch();
+            enableButtons();
+        } else if (algoName == "best") {
+            console.log(algoName);
+            disableButtons();
+            await initializeHeuristics();
+            await bestFirstSearch();
+            enableButtons();
+        } else if (algoName == "astar") {
+            console.log(algoName);
+            disableButtons();
+            await initializeHeuristics();
+            enableButtons();
+        } else if (algoName == "dijkstra") {
+            console.log(algoName);
+            disableButtons();
+            await initializeHeuristics();
+        } else if (algoName == "bidir") {
+            console.log(algoName);
+            disableButtons();
+            await initializeHeuristics();
+            enableButtons();
+        }
     }
 }
 

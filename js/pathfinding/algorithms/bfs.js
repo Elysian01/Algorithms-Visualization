@@ -31,9 +31,14 @@ async function breadthFirstSearchAlgo() {
 async function breadthFirstSearch() {
 
     let result = await breadthFirstSearchAlgo();
+
     if (result != "Found") {
         displayResult.innerHTML = "Path Not Possible !"
     } else {
         displayResult.innerHTML = "Path Found!"
     }
+    window.scrollBy({
+        top: 1000,
+        behavior: "smooth"
+    });
 }

@@ -31,9 +31,14 @@ async function depthFirstSearchAlgo() {
 
 async function depthFirstSearch() {
     let result = await depthFirstSearchAlgo();
+
     if (result != "Found") {
         displayResult.innerHTML = "Path Not Possible !"
     } else {
         displayResult.innerHTML = "Path Found!"
     }
+    window.scrollBy({
+        top: 1000,
+        behavior: "smooth"
+    });
 }

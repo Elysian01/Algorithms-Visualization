@@ -115,6 +115,25 @@ nav ul li a:hover {
 NavBar completed
 */
 
+.notations {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.notation {
+    margin-right: 30px;
+    text-align: center;
+}
+
+.notation-text {
+    display: inline;
+    margin-left: 5px;
+    top: -5px;
+    position: relative;
+}
+
 .mr-50 {
     margin-right: 50px;
 }

@@ -9,90 +9,149 @@
 </head>
 
 <body>
-
     <nav>
         <div class="mobile-logo">
-            <br>
-            <h1><a href="../index.html">Algo<span>Visualization</span></a></h1>
-        </div>
-        <div class="logo">
-            <a href="../index.html">Algo<span>Visualization</span></a>
+            <br />
+            <h1>
+                <a href="../index.html">Algo<span>Visualization</span></a
+					>
+				</h1>
+			</div>
+			<div class="logo">
+				<a href="../index.html">Algo<span>Visualization</span></a>
         </div>
 
         <ul>
             <li>
                 <a href="#">
                     <select name="algo" id="algo">
-                        <option value="" disabled selected>Choose Algorithm</option>
-                        <option value="bfs">
-                            BREADTH FIRST SEARCH
-                        </option>
-                        <option value="dfs">
-                            DEPTH FIRST SEARCH
-                        </option>
-                        <option value="best">
-                            BEST FIRST SEARCH
-                        </option>
-                        <option value="astar">A STAR</option>
-                        <option value="dijkstra">DIJKSTRA</option>
-                        <option value="bidir">BIDIRECTIONAL</option>
-                    </select>
+							<option value="" disabled selected>
+								Choose Algorithm
+							</option>
+							<option value="bfs">
+								BREADTH FIRST SEARCH
+							</option>
+							<option value="dfs">
+								DEPTH FIRST SEARCH
+							</option>
+							<option value="best">
+								BEST FIRST SEARCH
+							</option>
+							<option value="astar">A STAR</option>
+							<option value="dijkstra">DIJKSTRA</option>
+							<option value="bidir">BIDIRECTIONAL</option>
+						</select>
                 </a>
             </li>
             <li>
                 <a href="#"><button id="visualize" style="color: aqua">
-                        VISUALIZE
-                    </button></a>
-            </li>
+							VISUALIZE
+						</button></a
+					>
+				</li>
 
-            <li>
-                <a href="#"><button id="rectangular-maze">
-                        BUILT MAZE
-                    </button></a>
-            </li>
+				<li>
+					<a href="#"
+						><button id="rectangular-maze">
+							BUILT MAZE
+						</button></a
+					>
+				</li>
 
-            <li>
-                <a href="#"><button id="random-maze">
-                        RANDOM WALL MAZE
-                    </button></a>
-            </li>
+				<li>
+					<a href="#"
+						><button id="random-maze">
+							RANDOM WALL MAZE
+						</button></a
+					>
+				</li>
 
-            <li>
-                <a href="#"><button id="clear">CLEAR PATH</button></a>
+				<li>
+					<a href="#"><button id="clear">CLEAR PATH</button></a>
             </li>
 
             <li>
                 <a href="#"><button id="reset" style="color: red">
-                        RESET
-                    </button></a>
-            </li>
-        </ul>
-    </nav>
-    <br />
+							RESET
+						</button></a
+					>
+				</li>
+			</ul>
+		</nav>
+		<br />
 
-    <h1 class="container">
-        <i class="fas fa-wave-square"></i> Pathfinding Algorithms
-    </h1>
+		<h1 class="container">
+			<i class="fas fa-wave-square"></i> Pathfinding Algorithms
+		</h1>
 
+		<div class="notations container">
+			<div class="notation" style="display: inline">
+				<canvas
+					id="notation-box1"
+					width="40"
+					height="40"
+					style="display: inline"
+				></canvas>
+				<h2 class="notation-text">Start Node</h2>
+			</div>
+			<div class="notation" style="display: inline">
+				<canvas
+					id="notation-box2"
+					width="40"
+					height="40"
+					style="display: inline"
+				></canvas>
+				<h2 class="notation-text">End Node</h2>
+			</div>
+			<div class="notation" style="display: inline">
+				<canvas
+					id="notation-box3"
+					width="40"
+					height="40"
+					style="display: inline"
+				></canvas>
+				<h2 class="notation-text">Wall</h2>
+			</div>
+			<div class="notation" style="display: inline">
+				<canvas
+					id="notation-box4"
+					width="40"
+					height="40"
+					style="display: inline"
+				></canvas>
+				<h2 class="notation-text">Visited Node</h2>
+			</div>
+			<div class="notation" style="display: inline">
+				<canvas
+					id="notation-box5"
+					width="40"
+					height="40"
+					style="display: inline"
+				></canvas>
+				<h2 class="notation-text">Path Node</h2>
+			</div>
 
-    <br />
-    <div class="container">
-        <canvas id="main-canvas" width="1200" height="501"></canvas>
-    </div>
+			<button class="btn-dark btn-hover" title="Page Walk through">
+				Tutorial
+			</button>
+		</div>
 
-    <h2 class="container" id="result"></h2>
+		<br />
+		<div class="container">
+			<canvas id="main-canvas" width="1200" height="501"></canvas>
+		</div>
 
+		<h2 class="container" id="result"></h2>
+		<br /><br />
 
-    <script src="../js/pathfinding/sketch.js"></script>
-    <script src="../js/pathfinding/classes/board.js"></script>
-    <script src="../js/pathfinding/algorithms/bfs.js"></script>
-    <script src="../js/pathfinding/algorithms/dfs.js"></script>
-    <script src="../js/pathfinding/utils.js"></script>
-    <script src="../js/pathfinding/algorithms/best.js"></script>
-    <script src="../js/pathfinding/maze/randomMaze.js"></script>
-    <script src="../js/pathfinding/maze/recursiveDivision.js"></script>
-    <script src="../js/pathfinding/init.js"></script>
-
-</body>
-
+		<script src="../js/pathfinding/sketch.js"></script>
+		<script src="../js/pathfinding/classes/board.js"></script>
+		<script src="../js/pathfinding/algorithms/bfs.js"></script>
+		<script src="../js/pathfinding/algorithms/dfs.js"></script>
+		<script src="../js/pathfinding/utils.js"></script>
+		<script src="../js/pathfinding/algorithms/best.js"></script>
+		<script src="../js/pathfinding/maze/randomMaze.js"></script>
+		<script src="../js/pathfinding/maze/recursiveDivision.js"></script>
+		<script src="../js/pathfinding/init.js"></script>
+	</body>
 </html>
