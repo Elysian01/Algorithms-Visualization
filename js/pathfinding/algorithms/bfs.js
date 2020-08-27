@@ -13,8 +13,6 @@ async function breadthFirstSearchAlgo() {
         }
 
         // Checking every neighbor of current node
-
-
         for (let pos of getNeighbors(current)) {
             let node = tiles[pos[0]][pos[1]];
 

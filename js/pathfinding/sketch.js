@@ -7,6 +7,7 @@ let columns = 42;
 const fps = 75;
 var probability = 0.35; // higher prob  = more walls
 var leaveSomeEmptyProb = 0.35; // For Rectangular maze
+var heuristics = false;
 
 let scale = 25;
 let offset = 2.5;

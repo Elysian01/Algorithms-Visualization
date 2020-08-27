@@ -14,6 +14,26 @@ async function visitNode(node, parent) {
     await sleep(3000 / fps); // Don't Messs with this value, or everything will crash
 }
 
+async function initializeHeuristics() {
+    // if heuristics are already initialized, reset the gScore
+    if (heuristics) {
+        for (let c = 0; c < columns; c++) {
+            for (let r = 0; r < rows; r++) {
+                tiles[c][r].gScore = 0;
+            }
+        }
+    } else {
+        for (let c = 0; c < columns; c++) {
+            for (let r = 0; r < rows; r++) {
+                tiles[c][r].gScore = 0;
+                tiles[c][r].hScore = Math.abs(tiles[c][r].x - end.x) + Math.abs(tiles[c][r].y - end.y);
+            }
+        }
+        heuristics = true;
+    }
+}
+
+
 // Drawing the shortest path from end to beginning
 // this should be called ONLY IF the path exists
 async function drawPath() {

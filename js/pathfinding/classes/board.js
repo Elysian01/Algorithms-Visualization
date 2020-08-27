@@ -5,7 +5,8 @@ for (let c = 0; c < columns; c++) {
             x: c * (tileW + tileMargin),
             y: r * (tileH + tileMargin),
             state: 'e',
-            parent: false
+            parent: false,
+            weight: 0
         }
     }
 }
@@ -44,6 +45,9 @@ function drawStartAndEnd() {
 
 function rect(x, y, w, h, state) {
 
+    i = x / (tileW + tileMargin);
+    j = y / (tileH + tileMargin);
+
     ctx.lineWidth = 1;
     if (state == 'e') {
         ctx.fillStyle = defaultColor;
@@ -51,6 +55,7 @@ function rect(x, y, w, h, state) {
         ctx.fillStyle = endPointColor;
     } else if (state == 'w') {
         ctx.fillStyle = wallColor;
+        tiles[i][j].weight = Infinity;
     } else if (state == "s") {
         ctx.fillStyle = startPointColor;
     } else if (state == "v") {

@@ -26,21 +26,21 @@ async function visualize() {
     } else if (algoName == "dfs") {
         console.log(algoName);
         await depthFirstSearch();
+    } else if (algoName == "best") {
+        console.log(algoName);
+        await initializeHeuristics();
+        await bestFirstSearch();
     } else if (algoName == "astar") {
-        //astar
+        console.log(algoName);
+        await initializeHeuristics();
     } else if (algoName == "dijkstra") {
         console.log(algoName);
+        await initializeHeuristics();
     } else if (algoName == "bidir") {
         console.log(algoName);
+        await initializeHeuristics();
     }
 }
 
 // Result Not Found Display
 const displayResult = document.getElementById("result");
-
-
-//algorithms call
-function algoChange() {
-    let algoName = document.getElementById("algo").value;
-    // console.log(algoName);
-}

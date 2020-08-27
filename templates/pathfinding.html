@@ -22,13 +22,16 @@
         <ul>
             <li>
                 <a href="#">
-                    <select name="algo" id="algo" onchange="algoChange()">
+                    <select name="algo" id="algo">
                         <option value="" disabled selected>Choose Algorithm</option>
                         <option value="bfs">
                             BREADTH FIRST SEARCH
                         </option>
                         <option value="dfs">
                             DEPTH FIRST SEARCH
+                        </option>
+                        <option value="best">
+                            BEST FIRST SEARCH
                         </option>
                         <option value="astar">A STAR</option>
                         <option value="dijkstra">DIJKSTRA</option>
@@ -84,9 +87,10 @@
     <script src="../js/pathfinding/classes/board.js"></script>
     <script src="../js/pathfinding/algorithms/bfs.js"></script>
     <script src="../js/pathfinding/algorithms/dfs.js"></script>
+    <script src="../js/pathfinding/utils.js"></script>
+    <script src="../js/pathfinding/algorithms/best.js"></script>
     <script src="../js/pathfinding/maze/randomMaze.js"></script>
     <script src="../js/pathfinding/maze/recursiveDivision.js"></script>
-    <script src="../js/pathfinding/utils.js"></script>
     <script src="../js/pathfinding/init.js"></script>
 
 </body>
