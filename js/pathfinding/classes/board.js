@@ -6,10 +6,12 @@ for (let c = 0; c < columns; c++) {
             y: r * (tileH + tileMargin),
             state: 'e',
             parent: false,
-            weight: 10
+            weight: initialWeight
         }
     }
 }
+
+
 
 boundX = 0;
 boundY = 0;
@@ -49,7 +51,7 @@ function rect(x, y, w, h, state) {
     j = y / (tileH + tileMargin);
 
     ctx.lineWidth = 1;
-    if (tiles[i][j].weight == 5) {
+    if (tiles[i][j].weight == reducedWeight) {
         ctx.fillStyle = weightColor;
     } else if (state == 'e') {
         ctx.fillStyle = defaultColor;
@@ -77,7 +79,7 @@ function reset() {
             if (tiles[c][r].state == "w" || tiles[c][r].state == "v" || tiles[c][r].state == "p") {
                 tiles[c][r].state = "e";
             }
-            tiles[c][r].weight = 10;
+            tiles[c][r].weight = initialWeight;
         }
     }
     tiles[startY][startX].state = "s";
@@ -168,7 +170,7 @@ async function mouseDown(e) {
                 y > r * (tileH + tileMargin) && y < r * (tileH + tileMargin) + tileH) {
 
                 if (inputWeight && (c != boundX || r != boundY)) {
-                    tiles[c][r].weight = 5;
+                    tiles[c][r].weight = reducedWeight;
                 } else if (tiles[c][r].state == "e") {
                     tiles[c][r].state = "w"
                     boundX = c;
@@ -194,7 +196,7 @@ function mouseDrag(e) {
                 y > r * (tileH + tileMargin) && y < r * (tileH + tileMargin) + tileH) {
 
                 if (inputWeight && (c != boundX || r != boundY)) {
-                    tiles[c][r].weight = 5;
+                    tiles[c][r].weight = reducedWeight;
                 } else if (tiles[c][r].state == "e" && (c != boundX || r != boundY)) {
                     tiles[c][r].state = "w";
                     boundX = c;

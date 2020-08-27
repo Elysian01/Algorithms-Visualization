@@ -10,6 +10,9 @@ var leaveSomeEmptyProb = 0.35; // For Rectangular maze
 var heuristics = false;
 var inputWeight = false;
 
+var initialWeight = 100;
+var reducedWeight = 10;
+
 let scale = 25;
 let offset = 2.5;
 

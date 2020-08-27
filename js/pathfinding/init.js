@@ -63,7 +63,8 @@ async function visualize() {
         } else if (algoName == "dijkstra") {
             console.log(algoName);
             disableButtons();
-            await initializeHeuristics();
+            await dijkstra();
+            enableButtons();
         } else if (algoName == "bidir") {
             console.log(algoName);
             disableButtons();
@@ -75,3 +76,6 @@ async function visualize() {
 
 // Result Not Found Display
 const displayResult = document.getElementById("result");
+
+// Setting weight of last node as 100
+tiles[columns - 1][rows - 1].weight = reducedWeight;
