@@ -30,7 +30,6 @@
                   // node was discovered from current node
                   await visitNode(node, current);
                   bestFirstPQinsert(PriorityQueue, node);
-                  await sleep(1000 / fps);
               }
           }
           drawStartAndEnd()
