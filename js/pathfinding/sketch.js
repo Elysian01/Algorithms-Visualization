@@ -8,6 +8,7 @@ const fps = 75;
 var probability = 0.35; // higher prob  = more walls
 var leaveSomeEmptyProb = 0.35; // For Rectangular maze
 var heuristics = false;
+var inputWeight = false;
 
 let scale = 25;
 let offset = 2.5;
@@ -32,9 +33,9 @@ const startPointColor = "#FFC60B"; // gold
 const wallColor = "#343837"; // dark gray
 const defaultColor = "#E0E0E0"; // light gray
 
+const weightColor = "#090088"; // violet
 const visitedColor = "#05DFD7"; // sky
 const pathColor = "#40ff00"; // light green
-
 
 // user controls this using a button
 const diagonals = false;

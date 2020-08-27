@@ -7,6 +7,19 @@ canvas.onmouseup = mouseUp;
 document.getElementById("reset").addEventListener("click", reset);
 document.getElementById("clear").addEventListener("click", clearPath);
 
+// Gets Weight
+document.getElementById("weight").addEventListener("change", function() {
+    if (this.checked) {
+        inputWeight = true;
+        console.log(inputWeight)
+    } else {
+        inputWeight = false;
+        console.log(inputWeight)
+    }
+});
+console.log(inputWeight)
+
+
 // Maze
 document.getElementById("random-maze").addEventListener("click", randomMaze);
 document

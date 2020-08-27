@@ -115,6 +115,15 @@ nav ul li a:hover {
 NavBar completed
 */
 
+.heading {
+    line-height: 70px;
+}
+
+.tutorial-btn {
+    position: relative;
+    top: -5px;
+}
+
 .notations {
     display: flex;
     align-items: center;
@@ -132,6 +141,11 @@ NavBar completed
     margin-left: 5px;
     top: -5px;
     position: relative;
+}
+
+.notation-checkbox {
+    display: inline;
+    margin: 3px 10px;
 }
 
 .mr-50 {

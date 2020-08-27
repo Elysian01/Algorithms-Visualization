@@ -6,7 +6,7 @@ for (let c = 0; c < columns; c++) {
             y: r * (tileH + tileMargin),
             state: 'e',
             parent: false,
-            weight: 0
+            weight: 10
         }
     }
 }
