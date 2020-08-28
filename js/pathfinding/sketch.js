@@ -2,7 +2,7 @@
 Contains all the variables and initialization
 */
 
-let rows = 17;
+let rows = 23;
 let columns = 42;
 const fps = 75;
 var probability = 0.35; // higher prob  = more walls
@@ -10,7 +10,7 @@ var leaveSomeEmptyProb = 0.35; // For Rectangular maze
 var heuristics = false;
 var inputWeight = false;
 
-var initialWeight = 100;
+var initialWeight = 50;
 var reducedWeight = 10;
 
 let scale = 25;
@@ -20,8 +20,8 @@ const tileW = 25;
 const tileH = 25;
 const tileMargin = 3;
 const startY = 12;
-const startX = 8;
-const endX = 8;
+const startX = 11;
+const endX = 11;
 const endY = 30;
 
 var tiles = [];

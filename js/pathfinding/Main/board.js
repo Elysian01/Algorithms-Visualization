@@ -24,6 +24,7 @@ end = tiles[endY][endX];
 
 function setWall(c, r) {
     tiles[c][r].state = "w";
+    tiles[c][r].weight = Infinity;
 }
 
 function setVisited(c, r) {
@@ -55,6 +56,7 @@ function rect(x, y, w, h, state) {
         ctx.fillStyle = weightColor;
     } else if (state == 'e') {
         ctx.fillStyle = defaultColor;
+        tiles[i][j].weight = initialWeight;
     } else if (state == 'f') {
         ctx.fillStyle = endPointColor;
     } else if (state == 'w') {
@@ -82,8 +84,7 @@ function reset() {
             tiles[c][r].weight = initialWeight;
         }
     }
-    tiles[startY][startX].state = "s";
-    tiles[endY][endX].state = "f";
+    drawStartAndEnd();
     displayResult.innerHTML = "";
 }
 
@@ -173,7 +174,8 @@ async function mouseDown(e) {
                     tiles[c][r].weight = reducedWeight;
                 }
                 if (tiles[c][r].state == "e") {
-                    tiles[c][r].state = "w"
+                    tiles[c][r].state = "w";
+
                     boundX = c;
                     boundY = r;
                 } else if (tiles[c][r].state == "w") {

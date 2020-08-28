@@ -1,53 +1,58 @@
-  // helper function to insert node into priority queue
-  async function bestFirstPQinsert(PriorityQueue, node) {
-      for (let i = 0; i < PriorityQueue.length; i++) {
-          if (node.hScore + node.weight < PriorityQueue[i].hScore + PriorityQueue[i].weight) {
-              PriorityQueue.splice(i, 0, node);
-              return;
-          }
-      }
-      PriorityQueue.push(node);
-  }
+// helper function to insert node into priority queue
+async function bestFirstPQinsert(bestPriorityQueue, node) {
+    for (let i = 0; i < bestPriorityQueue.length; i++) {
+        if (node.hScore + node.weight < bestPriorityQueue[i].hScore + bestPriorityQueue[i].weight) {
+            bestPriorityQueue.splice(i, 0, node);
+            return;
+        }
+    }
+    bestPriorityQueue.push(node);
+}
 
-  async function bestFirstSearchAlgo() {
-      let PriorityQueue = [start];
+async function bestFirstSearchAlgo() {
+    let bestPriorityQueue = [start];
 
-      while (PriorityQueue.length > 0 && !interrupt) {
-          let current = PriorityQueue.splice(0, 1)[0];
+    while (bestPriorityQueue.length > 0 && !interrupt) {
+        let current = bestPriorityQueue.splice(0, 1)[0];
 
-          // If any of the neighbors is the end, then exit
-          if (current == end) {
-              console.log("Path Found !")
-              await drawPath();
-              return "Found";
-          }
+        // If any of the neighbors is the end, then exit
+        if (current == end) {
+            console.log("Path Found !")
+            await drawPath();
+            return "Found";
+        }
 
-          // Checking every neighbor of current node
-          for (let pos of getNeighbors(current)) {
-              let node = tiles[pos[0]][pos[1]];
+        // Checking every neighbor of current node
+        for (let pos of getNeighbors(current)) {
+            let node = tiles[pos[0]][pos[1]];
 
-              if (node.state != "w" && node.state != "v") {
-                  // node was discovered from current node
-                  await visitNode(node, current);
-                  bestFirstPQinsert(PriorityQueue, node);
-              }
-          }
-          drawStartAndEnd()
+            if (node.state != "w" && node.state != "v") {
+                // node was discovered from current node
+                await visitNode(node, current);
+                if (node == end) {
+                    console.log("Path Found !")
+                    await drawPath();
+                    return "Found";
+                }
+                bestFirstPQinsert(bestPriorityQueue, node);
+            }
+        }
+        drawStartAndEnd()
 
-      }
-  }
+    }
+}
 
 
-  async function bestFirstSearch() {
-      let result = await bestFirstSearchAlgo();
+async function bestFirstSearch() {
+    let result = await bestFirstSearchAlgo();
 
-      if (result != "Found") {
-          displayResult.innerHTML = "Path Not Possible !"
-      } else {
-          displayResult.innerHTML = "Path Found!"
-      }
-      window.scrollBy({
-          top: 1000,
-          behavior: "smooth"
-      });
-  }
+    if (result != "Found") {
+        displayResult.innerHTML = "Path Not Possible !"
+    } else {
+        displayResult.innerHTML = "Path Found!"
+    }
+    window.scrollBy({
+        top: 1000,
+        behavior: "smooth"
+    });
+}

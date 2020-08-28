@@ -11,13 +11,10 @@ document.getElementById("clear").addEventListener("click", clearPath);
 document.getElementById("weight").addEventListener("change", function() {
     if (this.checked) {
         inputWeight = true;
-        console.log(inputWeight)
     } else {
         inputWeight = false;
-        console.log(inputWeight)
     }
 });
-console.log(inputWeight)
 
 
 // Maze
@@ -59,16 +56,12 @@ async function visualize() {
             console.log(algoName);
             disableButtons();
             await initializeHeuristics();
+            await astar();
             enableButtons();
         } else if (algoName == "dijkstra") {
             console.log(algoName);
             disableButtons();
             await dijkstra();
-            enableButtons();
-        } else if (algoName == "bidir") {
-            console.log(algoName);
-            disableButtons();
-            await initializeHeuristics();
             enableButtons();
         }
     }
