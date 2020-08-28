@@ -76,6 +76,3 @@ async function visualize() {
 
 // Result Not Found Display
 const displayResult = document.getElementById("result");
-
-// Setting weight of last node as 100
-tiles[columns - 1][rows - 1].weight = reducedWeight;

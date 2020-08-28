@@ -41,7 +41,7 @@
                   node.gScore = current.gScore + current.weight;
                   await visitNode(node, current);
                   dijkstraPQinsert(PriorityQueue, node);
-                  await sleep(1000 / fps);
+                //   await sleep(1000 / fps);
               }
           }
           drawStartAndEnd()
