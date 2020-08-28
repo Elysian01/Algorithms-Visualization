@@ -171,7 +171,8 @@ async function mouseDown(e) {
 
                 if (inputWeight && (c != boundX || r != boundY)) {
                     tiles[c][r].weight = reducedWeight;
-                } else if (tiles[c][r].state == "e") {
+                }
+                if (tiles[c][r].state == "e") {
                     tiles[c][r].state = "w"
                     boundX = c;
                     boundY = r;
@@ -179,6 +180,10 @@ async function mouseDown(e) {
                     tiles[c][r].state = "e";
                     boundX = c;
                     boundY = r;
+                }
+                if (tiles[c][r].weight == reducedWeight && !inputWeight) {
+                    tiles[c][r].weight = initialWeight;
+                    tiles[c][r].state = "e";
                 }
             }
         }

@@ -68,7 +68,7 @@ async function initializeHeuristics() {
         for (let c = 0; c < columns; c++) {
             for (let r = 0; r < rows; r++) {
                 tiles[c][r].gScore = 0;
-                tiles[c][r].hScore = Math.abs(tiles[c][r].x - end.x) + Math.abs(tiles[c][r].y - end.y);
+                tiles[c][r].hScore = Math.sqrt(Math.pow((tiles[c][r].x - end.x), 2) + Math.pow((tiles[c][r].y - end.y), 2));
             }
         }
         heuristics = true;
