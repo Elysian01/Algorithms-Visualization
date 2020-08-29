@@ -4,14 +4,12 @@ for (let c = 0; c < columns; c++) {
         tiles[c][r] = {
             x: c * (tileW + tileMargin),
             y: r * (tileH + tileMargin),
-            state: 'e',
+            state: "e",
             parent: false,
-            weight: initialWeight
-        }
+            weight: initialWeight,
+        };
     }
 }
-
-
 
 boundX = 0;
 boundY = 0;
@@ -20,7 +18,6 @@ boundY = 0;
 
 start = tiles[startY][startX];
 end = tiles[endY][endX];
-
 
 function setWall(c, r) {
     tiles[c][r].state = "w";
@@ -35,31 +32,28 @@ function setDiscovered(c, r) {
     tiles[c][r].state = "d";
 }
 
-
 function setEmpty(c, r) {
     tiles[c][r].state = "e";
 }
 
 function drawStartAndEnd() {
     tiles[startY][startX].state = "s";
-    tiles[endY][endX].state = "f"
+    tiles[endY][endX].state = "f";
 }
 
-
 function rect(x, y, w, h, state) {
-
     i = x / (tileW + tileMargin);
     j = y / (tileH + tileMargin);
 
     ctx.lineWidth = 1;
     if (tiles[i][j].weight == reducedWeight) {
         ctx.fillStyle = weightColor;
-    } else if (state == 'e') {
+    } else if (state == "e") {
         ctx.fillStyle = defaultColor;
         tiles[i][j].weight = initialWeight;
-    } else if (state == 'f') {
+    } else if (state == "f") {
         ctx.fillStyle = endPointColor;
-    } else if (state == 'w') {
+    } else if (state == "w") {
         ctx.fillStyle = wallColor;
         tiles[i][j].weight = Infinity;
     } else if (state == "s") {
@@ -73,13 +67,16 @@ function rect(x, y, w, h, state) {
     ctx.rect(x, y, w, h);
     ctx.closePath();
     ctx.fill();
-
 }
 
 function reset() {
     for (let c = 0; c < columns; c++) {
         for (let r = 0; r < rows; r++) {
-            if (tiles[c][r].state == "w" || tiles[c][r].state == "v" || tiles[c][r].state == "p") {
+            if (
+                tiles[c][r].state == "w" ||
+                tiles[c][r].state == "v" ||
+                tiles[c][r].state == "p"
+            ) {
                 tiles[c][r].state = "e";
             }
             tiles[c][r].weight = initialWeight;
@@ -113,33 +110,38 @@ async function draw() {
 
     for (let c = 0; c < columns; c++) {
         for (let r = 0; r < rows; r++) {
-            rect(tiles[c][r].x, tiles[c][r].y, tileW, tileH, tiles[c][r].state)
+            rect(
+                tiles[c][r].x,
+                tiles[c][r].y,
+                tileW,
+                tileH,
+                tiles[c][r].state
+            );
         }
     }
 }
 
 function getNeighbors(node) {
-
     c = node.x / (tileW + tileMargin);
     r = node.y / (tileH + tileMargin);
 
-    let neighbors = []
+    let neighbors = [];
 
     if (r != rows - 1) {
         // console.log(c, r + 1);
-        neighbors.push([c, r + 1])
+        neighbors.push([c, r + 1]);
     }
     if (r > 0) {
         // console.log(c, r - 1);
-        neighbors.push([c, r - 1])
+        neighbors.push([c, r - 1]);
     }
     if (c != columns - 1) {
         // console.log(c + 1, r);
-        neighbors.push([c + 1, r])
+        neighbors.push([c + 1, r]);
     }
     if (c > 0) {
         // console.log(c - 1, r);
-        neighbors.push([c - 1, r])
+        neighbors.push([c - 1, r]);
     }
 
     if (diagonals) {
@@ -158,13 +160,9 @@ function getNeighbors(node) {
     }
 
     return neighbors;
-
 }
 
-
-
 async function mouseDown(e) {
-
     canvas.onmousemove = mouseDrag;
 
     let x = e.pageX - canvas.offsetLeft;
@@ -172,9 +170,12 @@ async function mouseDown(e) {
 
     for (let c = 0; c < columns; c++) {
         for (let r = 0; r < rows; r++) {
-            if (x > c * (tileW + tileMargin) && x < c * (tileW + tileMargin) + tileW &&
-                y > r * (tileH + tileMargin) && y < r * (tileH + tileMargin) + tileH) {
-
+            if (
+                x > c * (tileW + tileMargin) &&
+                x < c * (tileW + tileMargin) + tileW &&
+                y > r * (tileH + tileMargin) &&
+                y < r * (tileH + tileMargin) + tileH
+            ) {
                 if (placeSource) {
                     placeSource = false;
                     start.state = "e";
@@ -192,7 +193,7 @@ async function mouseDown(e) {
                     end = tiles[c][r];
                 }
 
-                if (inputWeight) {
+                if (inputWeight && (c != boundX || r != boundY)) {
                     tiles[c][r].weight = reducedWeight;
                     tiles[c][r].state = "wt";
                 }
@@ -215,23 +216,31 @@ async function mouseDown(e) {
 }
 
 function mouseDrag(e) {
-
     let x = e.pageX - canvas.offsetLeft;
     let y = e.pageY - canvas.offsetTop;
 
     for (let c = 0; c < columns; c++) {
         for (let r = 0; r < rows; r++) {
-            if (x > c * (tileW + tileMargin) && x < c * (tileW + tileMargin) + tileW &&
-                y > r * (tileH + tileMargin) && y < r * (tileH + tileMargin) + tileH) {
-
-                if (inputWeight) {
+            if (
+                x > c * (tileW + tileMargin) &&
+                x < c * (tileW + tileMargin) + tileW &&
+                y > r * (tileH + tileMargin) &&
+                y < r * (tileH + tileMargin) + tileH
+            ) {
+                if (inputWeight && (c != boundX || r != boundY)) {
                     tiles[c][r].weight = reducedWeight;
                     tiles[c][r].state = "wt";
-                } else if (tiles[c][r].state == "e" && (c != boundX || r != boundY)) {
+                } else if (
+                    tiles[c][r].state == "e" &&
+                    (c != boundX || r != boundY)
+                ) {
                     tiles[c][r].state = "w";
                     boundX = c;
                     boundY = r;
-                } else if (tiles[c][r].state == "w" && (c != boundX || r != boundY)) {
+                } else if (
+                    tiles[c][r].state == "w" &&
+                    (c != boundX || r != boundY)
+                ) {
                     tiles[c][r].state = "e";
                     boundX = c;
                     boundY = r;
