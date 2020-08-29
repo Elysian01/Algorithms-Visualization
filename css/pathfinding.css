@@ -204,3 +204,68 @@ NavBar completed
     margin: 10px;
     font-size: larger;
 }
+
+
+/*
+Tutorial
+*/
+
+.blackish {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.tutorial-container {
+    background-color: #fff;
+    margin: 5px auto;
+    width: 700px;
+    padding: 30px 22px;
+    border-radius: 15px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    left: 30%;
+    position: absolute;
+    /* position: fixed; */
+}
+
+.tutorial-content {
+    text-align: center;
+}
+
+.tutorial-content img {
+    max-width: 500px;
+}
+
+.tutorial-active {
+    display: flex;
+}
+
+.tutorial-body-active {
+    pointer-events: none;
+    /* opacity: 1;
+    background-color: rgba(0, 0, 0, 0.5); */
+}
+
+.tutorial-header {
+    margin-bottom: 5px;
+    border-bottom: 2px solid black;
+}
+
+.tutorial-header sup {
+    font-size: 1.2rem;
+    top: -15px;
+    left: 10px;
+    position: relative;
+    font-weight: 600;
+}
+
+#tutorial-img {
+    text-align: center;
+}
+
+.tutorial-btns {
+    display: flex;
+    justify-content: space-between;
+}

@@ -8,8 +8,8 @@
     <title>Pathfinding Visualization</title>
 </head>
 
-<body>
-    <nav>
+<body class="overlay" onload="enableTutorial()">
+    <nav class="content">
         <div class="mobile-logo">
             <br />
             <h1>
@@ -73,6 +73,29 @@
     </nav>
     <br />
 
+    <div class="tutorial-container">
+        <div class="tutorial-content">
+            <div class='tutorial-header'>
+                <h1>Welcome to Pathfinding Visualizer ! <sup>1/6</sup></h1>
+            </div>
+            <h2>This short tutorial will walk you through all of the features of this application.</h2>
+            <h3>If you want to dive right in, feel free to press the "Skip Tutorial" button below. Otherwise, press "Next"!
+            </h3>
+            <img src='../img/pathfinding_tutorial/logo.png' alt='demo image' id='tutorial-img'>
+        </div>
+        <br>
+        <div class="tutorial-btns">
+            <button class='tutorial-btn btn-dark' id='prev'>Previous</button>
+            <button class='tutorial-btn btn-danger' id='skip'>Skip Tutorial</button>
+            <button class='tutorial-btn btn-dark' id='next'>Next</button>
+        </div>
+        <div>
+            <button class='tutorial-btn btn-dark finish' style="display: none;" id='skip'>Close Tutorials</button>
+        </div>
+
+    </div>
+
+
     <div class="container heading">
         <h1><i class="fas fa-wave-square"></i> Explore Awesome Pathfinding Algorithms !!</h1>
     </div>
@@ -105,10 +128,10 @@
             <h2 class="notation-text">Weight</h2>
         </div>
         <div class="notation">
-            <button class="btn-dark btn-hover tutorial-btn" title="Page Walk through">
+            <button class="btn-dark btn-hover tutorial-btn" id="tutorial" title="Page Walk through">
                 Tutorial
             </button>
-            <h2 class="notation-text">Add Weights </h2>
+            <h2 class="notation-text content">Add Weights </h2>
             <input type="checkbox" id="weight" name="weight" style="zoom:1.9">
         </div>
     </div>
@@ -123,7 +146,7 @@
     </div> -->
 
 
-    <div class="container">
+    <div class="container content">
         <canvas id="main-canvas" width="1200" height="641"></canvas>
     </div>
 
@@ -141,6 +164,7 @@
     <script src="../js/pathfinding/algorithms/astar.js"></script>
     <script src="../js/pathfinding/maze/randomMaze.js"></script>
     <script src="../js/pathfinding/maze/recursiveDivision.js"></script>
+    <script src="../js/pathfinding/tutorialsModal.js"></script>
     <script src="../js/pathfinding/init.js"></script>
 </body>
 
