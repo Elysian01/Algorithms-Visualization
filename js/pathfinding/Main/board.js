@@ -15,8 +15,8 @@ for (let c = 0; c < columns; c++) {
 
 boundX = 0;
 boundY = 0;
-tiles[startY][startX].state = "s";
-tiles[endY][endX].state = "f"
+// tiles[startY][startX].state = "s";
+// tiles[endY][endX].state = "f"
 
 start = tiles[startY][startX];
 end = tiles[endY][endX];
@@ -73,6 +73,7 @@ function rect(x, y, w, h, state) {
     ctx.rect(x, y, w, h);
     ctx.closePath();
     ctx.fill();
+
 }
 
 function reset() {
@@ -98,6 +99,7 @@ function clearPath() {
             tiles[c][r].parent = false;
         }
     }
+    drawStartAndEnd();
     displayResult.innerHTML = "";
     visitedResult.innerHTML = "";
 }
@@ -108,6 +110,7 @@ function clear() {
 
 async function draw() {
     clear();
+
     for (let c = 0; c < columns; c++) {
         for (let r = 0; r < rows; r++) {
             rect(tiles[c][r].x, tiles[c][r].y, tileW, tileH, tiles[c][r].state)
@@ -171,6 +174,23 @@ async function mouseDown(e) {
         for (let r = 0; r < rows; r++) {
             if (x > c * (tileW + tileMargin) && x < c * (tileW + tileMargin) + tileW &&
                 y > r * (tileH + tileMargin) && y < r * (tileH + tileMargin) + tileH) {
+
+                if (placeSource) {
+                    placeSource = false;
+                    start.state = "e";
+                    tiles[c][r].state = "s";
+                    startX = r;
+                    startY = c;
+                    start = tiles[c][r];
+                }
+                if (placeDestination) {
+                    placeDestination = false;
+                    end.state = "e";
+                    tiles[c][r].state = "f";
+                    endX = r;
+                    endY = c;
+                    end = tiles[c][r];
+                }
 
                 if (inputWeight) {
                     tiles[c][r].weight = reducedWeight;

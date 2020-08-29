@@ -120,7 +120,7 @@ NavBar completed
 */
 
 .heading {
-    line-height: 70px;
+    line-height: 80px;
 }
 
 .tutorial-btn {
@@ -198,6 +198,19 @@ NavBar completed
 
 .btn-danger {
     background-color: #fe4a49;
+    font-weight: 600;
+    /* background-color: #ff4d00; */
+    border: none;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+    font-size: larger;
+}
+
+.btn-start {
+    background-color: #FFC60B;
     font-weight: 600;
     /* background-color: #ff4d00; */
     border: none;

@@ -20,10 +20,13 @@ let offset = 2.5;
 const tileW = 25;
 const tileH = 25;
 const tileMargin = 3;
-const startY = 12;
-const startX = 8;
-const endX = 8;
-const endY = 30;
+var startY = 12;
+var startX = 8;
+var endX = 8;
+var endY = 30;
+
+var placeSource = false;
+var placeDestination = false;
 
 var tiles = [];
 

@@ -16,6 +16,15 @@ document.getElementById("weight").addEventListener("change", function () {
     }
 });
 
+// Place Source And Destination
+document.getElementById("start").addEventListener("click", () => {
+    placeSource = true;
+});
+document.getElementById("end").addEventListener("click", () => {
+    placeDestination = true;
+});
+drawStartAndEnd();
+
 
 // Maze
 document.getElementById("random-maze").addEventListener("click", randomMaze);
