@@ -36,7 +36,7 @@ async function bestFirstSearchAlgo() {
                     return "Found";
                 }
                 bestFirstPQinsert(bestPriorityQueue, node);
-                visitedNodes++;
+
             }
         }
         drawStartAndEnd()

@@ -42,7 +42,7 @@ async function dijkstraAlgo() {
                 node.gScore = current.gScore + current.weight;
                 await visitNode(node, current);
                 dijkstraPQinsert(PriorityQueue, node);
-                visitedNodes++;
+
                 //   await sleep(1000 / fps);
             }
         }

@@ -21,7 +21,7 @@ async function breadthFirstSearchAlgo() {
                 // node was discovered from current node
                 await visitNode(node, current);
                 Queue = Queue.concat(node);
-                visitedNodes++;
+
             }
         }
         drawStartAndEnd()

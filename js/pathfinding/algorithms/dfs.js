@@ -24,7 +24,7 @@ async function depthFirstSearchAlgo() {
             if (node.state != "w" && node.state != "v") {
                 await visitNode(node, current);
                 Stack.push(node);
-                visitedNodes++;
+
             }
         }
         await sleep(1000 / fps);
