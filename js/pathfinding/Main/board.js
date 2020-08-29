@@ -86,6 +86,7 @@ function reset() {
     }
     drawStartAndEnd();
     displayResult.innerHTML = "";
+    visitedResult.innerHTML = "";
 }
 
 function clearPath() {
@@ -98,6 +99,7 @@ function clearPath() {
         }
     }
     displayResult.innerHTML = "";
+    visitedResult.innerHTML = "";
 }
 
 function clear() {

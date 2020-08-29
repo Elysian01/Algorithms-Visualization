@@ -8,72 +8,124 @@
     <title>Pathfinding Visualization</title>
 </head>
 
-<!-- <body class="overlay" onload="enableTutorial()"> -->
-
-<body>
-    <nav class="content">
-        <div class="mobile-logo">
-            <br />
-            <h1>
+<body onload="enableTutorial()">
+    <div class="overlay">
+        <nav class="content">
+            <div class="mobile-logo">
+                <br />
+                <h1>
+                    <a href="../index.html">Algo<span>Visualization</span></a>
+                </h1>
+            </div>
+            <div class="logo">
                 <a href="../index.html">Algo<span>Visualization</span></a>
-            </h1>
+            </div>
+
+            <ul>
+                <li>
+                    <a href="#">
+                        <select name="algo" id="algo">
+                            <option value="" disabled selected>
+                                Choose Algorithm
+                            </option>
+                            <option value="bfs">
+                                BREADTH FIRST SEARCH
+                            </option>
+                            <option value="dfs">
+                                DEPTH FIRST SEARCH
+                            </option>
+
+                            <option value="dijkstra">DIJKSTRA ALGORITHM</option>
+                            <option value="best">
+                                BEST FIRST SEARCH
+                            </option>
+                            <option value="astar">A* ALGORITHM</option>
+                        </select>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><button id="visualize" style="color: aqua">
+                            VISUALIZE
+                        </button></a>
+                </li>
+
+                <li>
+                    <a href="#"><button id="rectangular-maze">
+                            BUILT MAZE
+                        </button></a>
+                </li>
+
+                <li>
+                    <a href="#"><button id="random-maze">
+                            RANDOM WALL MAZE
+                        </button></a>
+                </li>
+
+                <li>
+                    <a href="#"><button id="clear">CLEAR PATH</button></a>
+                </li>
+
+                <li>
+                    <a href="#"><button id="reset" style="color: red">
+                            RESET
+                        </button></a>
+                </li>
+            </ul>
+        </nav>
+        <br />
+
+
+
+
+        <div class="container heading">
+            <h1><i class="fas fa-wave-square"></i> Explore Awesome Pathfinding Algorithms !!</h1>
         </div>
-        <div class="logo">
-            <a href="../index.html">Algo<span>Visualization</span></a>
+
+
+        <div class="notations container content">
+            <div class="notation" style="display: inline">
+                <canvas id="notation-box1" width="30" height="30" style="display: inline"></canvas>
+                <h2 class="notation-text">Start</h2>
+            </div>
+            <div class="notation" style="display: inline">
+                <canvas id="notation-box2" width="30" height="30" style="display: inline"></canvas>
+                <h2 class="notation-text">End</h2>
+            </div>
+            <div class="notation" style="display: inline">
+                <canvas id="notation-box3" width="30" height="30" style="display: inline"></canvas>
+                <h2 class="notation-text">Wall</h2>
+            </div>
+            <div class="notation" style="display: inline">
+                <canvas id="notation-box4" width="30" height="30" style="display: inline"></canvas>
+                <h2 class="notation-text">Visited</h2>
+            </div>
+            <div class="notation" style="display: inline">
+                <canvas id="notation-box5" width="30" height="30" style="display: inline"></canvas>
+                <h2 class="notation-text">Path</h2>
+            </div>
+
+            <div class="notation" style="display: inline">
+                <canvas id="notation-box6" width="30" height="30" style="display: inline"></canvas>
+                <h2 class="notation-text">Weight</h2>
+            </div>
+            <div class="notation">
+                <button class="btn-dark btn-hover tutorial-btn" id="tutorial" title="Page Walk through">
+                    Tutorial
+                </button>
+                <h2 class="notation-text content">Add Weights </h2>
+                <input type="checkbox" id="weight" name="weight" style="zoom:1.9">
+            </div>
         </div>
 
-        <ul>
-            <li>
-                <a href="#">
-                    <select name="algo" id="algo">
-                        <option value="" disabled selected>
-                            Choose Algorithm
-                        </option>
-                        <option value="bfs">
-                            BREADTH FIRST SEARCH
-                        </option>
-                        <option value="dfs">
-                            DEPTH FIRST SEARCH
-                        </option>
+        <div class="container content">
+            <canvas id="main-canvas" width="1200" height="481"></canvas>
+        </div>
 
-                        <option value="dijkstra">DIJKSTRA ALGORITHM</option>
-                        <option value="best">
-                            BEST FIRST SEARCH
-                        </option>
-                        <option value="astar">A* ALGORITHM</option>
-                    </select>
-                </a>
-            </li>
-            <li>
-                <a href="#"><button id="visualize" style="color: aqua">
-                        VISUALIZE
-                    </button></a>
-            </li>
-
-            <li>
-                <a href="#"><button id="rectangular-maze">
-                        BUILT MAZE
-                    </button></a>
-            </li>
-
-            <li>
-                <a href="#"><button id="random-maze">
-                        RANDOM WALL MAZE
-                    </button></a>
-            </li>
-
-            <li>
-                <a href="#"><button id="clear">CLEAR PATH</button></a>
-            </li>
-
-            <li>
-                <a href="#"><button id="reset" style="color: red">
-                        RESET
-                    </button></a>
-            </li>
-        </ul>
-    </nav>
-    <br />
+        <br>
+        <h2 class="container" id="visited"></h2>
+        <h2 class="container" id="result"></h2>
+        <br /><br /><br>
+    </div>
 
     <div class="tutorial-container">
         <div class="tutorial-content">
@@ -95,58 +147,7 @@
         <div>
             <button class='tutorial-btn btn-dark finish' style="display: none;" id='skip'>Close Tutorials</button>
         </div>
-
     </div>
-
-
-    <div class="container heading">
-        <h1><i class="fas fa-wave-square"></i> Explore Awesome Pathfinding Algorithms !!</h1>
-    </div>
-
-
-    <div class="notations container">
-        <div class="notation" style="display: inline">
-            <canvas id="notation-box1" width="30" height="30" style="display: inline"></canvas>
-            <h2 class="notation-text">Start</h2>
-        </div>
-        <div class="notation" style="display: inline">
-            <canvas id="notation-box2" width="30" height="30" style="display: inline"></canvas>
-            <h2 class="notation-text">End</h2>
-        </div>
-        <div class="notation" style="display: inline">
-            <canvas id="notation-box3" width="30" height="30" style="display: inline"></canvas>
-            <h2 class="notation-text">Wall</h2>
-        </div>
-        <div class="notation" style="display: inline">
-            <canvas id="notation-box4" width="30" height="30" style="display: inline"></canvas>
-            <h2 class="notation-text">Visited</h2>
-        </div>
-        <div class="notation" style="display: inline">
-            <canvas id="notation-box5" width="30" height="30" style="display: inline"></canvas>
-            <h2 class="notation-text">Path</h2>
-        </div>
-
-        <div class="notation" style="display: inline">
-            <canvas id="notation-box6" width="30" height="30" style="display: inline"></canvas>
-            <h2 class="notation-text">Weight</h2>
-        </div>
-        <div class="notation">
-            <button class="btn-dark btn-hover tutorial-btn" id="tutorial" title="Page Walk through">
-                Tutorial
-            </button>
-            <h2 class="notation-text content">Add Weights </h2>
-            <input type="checkbox" id="weight" name="weight" style="zoom:1.9">
-        </div>
-    </div>
-
-    <div class="container content">
-        <canvas id="main-canvas" width="1200" height="481"></canvas>
-    </div>
-
-    <br>
-    <h2 class="container" id="visited"></h2>
-    <h2 class="container" id="result"></h2>
-    <br /><br />
 
     <script src="../js/pathfinding/sketch.js"></script>
     <script src="../js/pathfinding/Main/board.js"></script>

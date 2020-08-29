@@ -11,6 +11,7 @@ async function depthFirstSearchAlgo() {
             await drawPath();
             return "Found";
         }
+        visitedNodes++;
 
         // Checking every neighbor of current node
         for (let pos of getNeighbors(current).reverse()) {
@@ -23,6 +24,7 @@ async function depthFirstSearchAlgo() {
             if (node.state != "w" && node.state != "v") {
                 await visitNode(node, current);
                 Stack.push(node);
+                visitedNodes++;
             }
         }
         await sleep(1000 / fps);
@@ -30,12 +32,17 @@ async function depthFirstSearchAlgo() {
 }
 
 async function depthFirstSearch() {
+    visitedNodes = 0
     let result = await depthFirstSearchAlgo();
 
     if (result != "Found") {
-        displayResult.innerHTML = "Path Not Possible !"
+        displayResult.innerHTML = "Path Not Possible !";
+        visitedResult.innerHTML = "Total Visited Nodes : " + visitedNodes
+
     } else {
-        displayResult.innerHTML = "Path Found!"
+        displayResult.innerHTML = "Path Found!";
+        visitedResult.innerHTML = "Total Visited Nodes : " + visitedNodes
+
     }
     window.scrollBy({
         top: 1000,

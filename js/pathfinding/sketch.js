@@ -9,6 +9,7 @@ var probability = 0.35; // higher prob  = more walls
 var leaveSomeEmptyProb = 0.35; // For Rectangular maze
 var heuristics = false;
 var inputWeight = false;
+var visitedNodes = 0;
 
 var initialWeight = 50;
 var reducedWeight = 5;

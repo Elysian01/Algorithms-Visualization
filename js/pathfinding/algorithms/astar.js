@@ -85,6 +85,7 @@ async function astarAlgo() {
             interrupt = true;
             return "Found";
         }
+        visitedNodes++;
 
         // Checking every neighbor of current node
         for (let pos of getNeighbors(current)) {
@@ -100,6 +101,7 @@ async function astarAlgo() {
                     return "Found";
                 }
                 astarPQinsert(PriorityQueue, node);
+                visitedNodes++;
             }
         }
         drawStartAndEnd()
@@ -109,12 +111,18 @@ async function astarAlgo() {
 
 
 async function astar() {
+    visitedNodes = 0;
     let result = await astarAlgo();
     interrupt = false;
+
     if (result != "Found") {
-        displayResult.innerHTML = "Path Not Possible !"
+        displayResult.innerHTML = "Path Not Possible !";
+        visitedResult.innerHTML = "Total Visited Nodes : " + visitedNodes
+
     } else {
-        displayResult.innerHTML = "Path Found!"
+        displayResult.innerHTML = "Path Found!";
+        visitedResult.innerHTML = "Total Visited Nodes : " + visitedNodes
+
     }
     window.scrollBy({
         top: 1000,

@@ -11,7 +11,9 @@ finish = document.querySelector(".finish");
 var tutorialPage = 1;
 
 
-document.getElementById("tutorial").addEventListener("click", enableTutorial)
+document.getElementById("tutorial").addEventListener("click", enableTutorial);
+
+
 
 function enableTutorial() {
     tutorial.classList.toggle("tutorial-active");
@@ -36,13 +38,17 @@ prev.addEventListener("click", () => {
 
 // Skip
 skip.addEventListener("click", () => {
+    closeModal();
+})
+
+function closeModal() {
     tutorial.classList.toggle("tutorial-active");
     body.classList.remove("tutorial-body-active");
     overlay.classList.remove("blackish");
     tutorialPage = 1;
     tutorialBody.innerHTML = "<div class='tutorial-header'><h1> Welcome to Pathfinding Visualizer! <sup> 1/6</sup></h1></div><h2>This short tutorial will walk you through all of the features of this application.</h2><h3>If you want to dive right in, feel free to press the 'Skip Tutorial' button below. Otherwise, press 'Next'!</h3><img src='../img/pathfinding_tutorial/logo.png' alt='demo image' id='tutorial-img'>";
 
-})
+}
 
 function tutorialDisplay() {
 

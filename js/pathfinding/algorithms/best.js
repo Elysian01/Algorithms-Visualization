@@ -21,6 +21,7 @@ async function bestFirstSearchAlgo() {
             await drawPath();
             return "Found";
         }
+        visitedNodes++;
 
         // Checking every neighbor of current node
         for (let pos of getNeighbors(current)) {
@@ -35,6 +36,7 @@ async function bestFirstSearchAlgo() {
                     return "Found";
                 }
                 bestFirstPQinsert(bestPriorityQueue, node);
+                visitedNodes++;
             }
         }
         drawStartAndEnd()
@@ -44,12 +46,17 @@ async function bestFirstSearchAlgo() {
 
 
 async function bestFirstSearch() {
+    visitedNodes = 0;
     let result = await bestFirstSearchAlgo();
 
     if (result != "Found") {
-        displayResult.innerHTML = "Path Not Possible !"
+        displayResult.innerHTML = "Path Not Possible !";
+        visitedResult.innerHTML = "Total Visited Nodes : " + visitedNodes
+
     } else {
-        displayResult.innerHTML = "Path Found!"
+        displayResult.innerHTML = "Path Found!";
+        visitedResult.innerHTML = "Total Visited Nodes : " + visitedNodes
+
     }
     window.scrollBy({
         top: 1000,
