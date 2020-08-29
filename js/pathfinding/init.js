@@ -8,7 +8,7 @@ document.getElementById("reset").addEventListener("click", reset);
 document.getElementById("clear").addEventListener("click", clearPath);
 
 // Gets Weight
-document.getElementById("weight").addEventListener("change", function() {
+document.getElementById("weight").addEventListener("change", function () {
     if (this.checked) {
         inputWeight = true;
     } else {
@@ -66,6 +66,9 @@ async function visualize() {
         }
     }
 }
+
+// Visited Node Display
+const visitedResult = document.getElementById("visited");
 
 // Result Not Found Display
 const displayResult = document.getElementById("result");

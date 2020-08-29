@@ -8,7 +8,9 @@
     <title>Pathfinding Visualization</title>
 </head>
 
-<body class="overlay" onload="enableTutorial()">
+<!-- <body class="overlay" onload="enableTutorial()"> -->
+
+<body>
     <nav class="content">
         <div class="mobile-logo">
             <br />
@@ -79,7 +81,8 @@
                 <h1>Welcome to Pathfinding Visualizer ! <sup>1/6</sup></h1>
             </div>
             <h2>This short tutorial will walk you through all of the features of this application.</h2>
-            <h3>If you want to dive right in, feel free to press the "Skip Tutorial" button below. Otherwise, press "Next"!
+            <h3>If you want to dive right in, feel free to press the "Skip Tutorial" button below. Otherwise, press
+                "Next"!
             </h3>
             <img src='../img/pathfinding_tutorial/logo.png' alt='demo image' id='tutorial-img'>
         </div>
@@ -135,22 +138,13 @@
             <input type="checkbox" id="weight" name="weight" style="zoom:1.9">
         </div>
     </div>
-    <!-- 
-    <div class="notations container">
-        <button class="btn-dark btn-hover" title="Page Walk through">
-			Tutorial
-		</button>
-        <h2 class="notation-checkbox">Add Weights</h2>
-        <input type="checkbox" id="weight" name="weight" style="zoom:2">
-
-    </div> -->
-
 
     <div class="container content">
-        <canvas id="main-canvas" width="1200" height="641"></canvas>
+        <canvas id="main-canvas" width="1200" height="481"></canvas>
     </div>
 
     <br>
+    <h2 class="container" id="visited"></h2>
     <h2 class="container" id="result"></h2>
     <br /><br />
 

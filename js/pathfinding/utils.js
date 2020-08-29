@@ -90,6 +90,7 @@ async function drawPath() {
     while (current != start && count != 0) {
         path.unshift(current);
         current = current.parent;
+        console.log(current);
         count -= 1;
     }
     path.unshift(start);

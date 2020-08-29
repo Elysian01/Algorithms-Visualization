@@ -170,12 +170,12 @@ async function mouseDown(e) {
             if (x > c * (tileW + tileMargin) && x < c * (tileW + tileMargin) + tileW &&
                 y > r * (tileH + tileMargin) && y < r * (tileH + tileMargin) + tileH) {
 
-                if (inputWeight && (c != boundX || r != boundY)) {
+                if (inputWeight) {
                     tiles[c][r].weight = reducedWeight;
+                    tiles[c][r].state = "wt";
                 }
                 if (tiles[c][r].state == "e") {
                     tiles[c][r].state = "w";
-
                     boundX = c;
                     boundY = r;
                 } else if (tiles[c][r].state == "w") {
@@ -202,8 +202,9 @@ function mouseDrag(e) {
             if (x > c * (tileW + tileMargin) && x < c * (tileW + tileMargin) + tileW &&
                 y > r * (tileH + tileMargin) && y < r * (tileH + tileMargin) + tileH) {
 
-                if (inputWeight && (c != boundX || r != boundY)) {
+                if (inputWeight) {
                     tiles[c][r].weight = reducedWeight;
+                    tiles[c][r].state = "wt";
                 } else if (tiles[c][r].state == "e" && (c != boundX || r != boundY)) {
                     tiles[c][r].state = "w";
                     boundX = c;
