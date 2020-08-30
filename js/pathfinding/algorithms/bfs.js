@@ -11,7 +11,7 @@ async function breadthFirstSearchAlgo() {
             await drawPath();
             return "Found";
         }
-        visitedNodes++;
+
 
         // Checking every neighbor of current node
         for (let pos of getNeighbors(current)) {

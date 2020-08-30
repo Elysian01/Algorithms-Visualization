@@ -46,6 +46,7 @@ function enableButtons() {
 }
 
 async function visitNode(node, parent) {
+    visitedNodes++;
     c = node.x / (tileW + tileMargin);
     r = node.y / (tileH + tileMargin);
     tiles[c][r].parent = parent;

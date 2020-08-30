@@ -13,8 +13,6 @@ for (let c = 0; c < columns; c++) {
 
 boundX = 0;
 boundY = 0;
-// tiles[startY][startX].state = "s";
-// tiles[endY][endX].state = "f"
 
 start = tiles[startY][startX];
 end = tiles[endY][endX];
@@ -197,19 +195,21 @@ async function mouseDown(e) {
                     tiles[c][r].weight = reducedWeight;
                     tiles[c][r].state = "wt";
                 }
-                if (tiles[c][r].state == "e") {
+                if (tiles[c][r].state == "wt") {
+                    tiles[c][r].weight = initialWeight;
+                    // tiles[c][r].state = "e";
+                }
+
+                if (tiles[c][r].state == "w") {
+                    tiles[c][r].state = "e";
+                    boundX = c;
+                    boundY = r;
+                } else if (tiles[c][r].state == "e") {
                     tiles[c][r].state = "w";
                     boundX = c;
                     boundY = r;
-                } else if (tiles[c][r].state == "w") {
-                    tiles[c][r].state = "e";
-                    boundX = c;
-                    boundY = r;
                 }
-                if (tiles[c][r].weight == reducedWeight && !inputWeight) {
-                    tiles[c][r].weight = initialWeight;
-                    tiles[c][r].state = "e";
-                }
+
             }
         }
     }
