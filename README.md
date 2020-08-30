@@ -6,6 +6,7 @@
 
 * Breadth First Search
 * Depth First Search
+* Best First Search
 * Dijkstra Algorithm
 * Astar Algorithm
 * Bidirectional Pathfinding Algorithm
