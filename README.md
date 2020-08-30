@@ -9,7 +9,6 @@
 * Best First Search
 * Dijkstra Algorithm
 * Astar Algorithm
-* Bidirectional Pathfinding Algorithm
 
 ## Searching Algorithms
 
