@@ -83,6 +83,6 @@ const visitedResult = document.getElementById("visited");
 const displayResult = document.getElementById("result");
 
 // Window Size
-var windowSize = window.matchMedia("(max-width: 900px)")
+var windowSize = window.matchMedia("(max-width: 1000px)")
 setSize(windowSize);
 windowSize.addListener(setSize)
