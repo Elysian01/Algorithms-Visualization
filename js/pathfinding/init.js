@@ -81,3 +81,8 @@ const visitedResult = document.getElementById("visited");
 
 // Result Not Found Display
 const displayResult = document.getElementById("result");
+
+// Window Size
+var windowSize = window.matchMedia("(max-width: 900px)")
+setSize(windowSize);
+windowSize.addListener(setSize)

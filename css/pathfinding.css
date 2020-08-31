@@ -1,11 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
 * {
     margin: 0;
     padding: 0;
     user-select: none;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --total-width: 800px;
 }
 
 body {
@@ -20,7 +23,8 @@ a {
 nav {
     background: #1b1b1b;
     box-shadow: 5px 5px 4px #3d3c3c;
-    min-width: 1200px;
+    /* min-width: 1200px; */
+    min-width: var(--total-width);
 }
 
 button,
@@ -40,8 +44,12 @@ select:focus {
     outline: none;
 }
 
+button:disabled {
+    color: #ddd;
+}
+
 nav:after {
-    content: '';
+    content: "";
     clear: both;
     display: table;
 }
@@ -95,22 +103,28 @@ nav ul li a:hover {
     .logo {
         display: none;
     }
-
     .mobile-logo {
         display: block;
         background-color: #1b1b1b;
-        min-width: 1200px;
+        /* min-width: 1200px; */
+        min-width: var(--total-width);
         text-align: center;
         border: none;
         outline: none;
     }
-
     .mobile-logo span {
         color: #66ffff;
     }
-
     .container {
-        min-width: 1200px;
+        /* min-width: 1200px; */
+        min-width: var(--total-width);
+    }
+    nav ul li {
+        float: none;
+    }
+    nav ul li a {
+        font-size: 10px;
+        padding: 8px 8px;
     }
 }
 
@@ -210,7 +224,7 @@ NavBar completed
 }
 
 .btn-start {
-    background-color: #FFC60B;
+    background-color: #ffc60b;
     font-weight: 600;
     /* background-color: #ff4d00; */
     border: none;

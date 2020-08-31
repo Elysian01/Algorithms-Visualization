@@ -2,8 +2,11 @@
 Contains all the variables and initialization
 */
 
-let rows = 17;
-let columns = 42;
+
+var rows = 17;
+var columns = 42;
+
+
 const fps = 75;
 var probability = 0.35; // higher prob  = more walls
 var leaveSomeEmptyProb = 0.35; // For Rectangular maze

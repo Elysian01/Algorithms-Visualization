@@ -14,6 +14,35 @@ function checkSearchAlredyImplemented() {
     return false;
 }
 
+function setSize(windowSize) {
+
+    if (windowSize.matches) {
+        console.log(window.innerWidth);
+        console.log(window.innerHeight);
+        canvas.width = "780";
+        canvas.height = "500";
+        columns = 28;
+        startY = 10;
+        endY = 20;
+        start = tiles[startY][startX];
+        tiles[12][startX].state = "e";
+        end = tiles[endY][endX];
+        drawStartAndEnd();
+        // rows = 50;
+    } else {
+        canvas.width = "1200";
+        canvas.height = "481";
+        columns = 42;
+        rows = 17;
+        startY = 12;
+        start = tiles[startY][startX];
+        end = tiles[endY][endX];
+        // endY = 30;
+    }
+
+
+}
+
 function disableButtons() {
     //reset grid and clear Path
     document.getElementById("reset").disabled = true;
