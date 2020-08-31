@@ -8,7 +8,7 @@
 }
 
 :root {
-    --total-width: 800px;
+    --total-width: 825px;
 }
 
 body {
@@ -244,7 +244,7 @@ Tutorial
 .blackish {
     background-color: rgba(0, 0, 0, 0.5);
     pointer-events: none;
-    /* z-index: -1; */
+    min-width: var(--total-width);
 }
 
 .tutorial-container {
@@ -262,6 +262,19 @@ Tutorial
     left: 30%;
     position: absolute;
     /* position: fixed; */
+}
+
+@media only screen and (max-width: 1100px) {
+    .tutorial-container {
+        top: 17%;
+        left: 40px;
+    }
+    .blackish {
+        max-width: var(--total-width);
+    }
+    body {
+        max-width: var(--total-width);
+    }
 }
 
 .tutorial-content {
