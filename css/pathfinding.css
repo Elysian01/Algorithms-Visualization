@@ -264,7 +264,7 @@ Tutorial
     /* position: fixed; */
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 900px) {
     .tutorial-container {
         top: 17%;
         left: 40px;
@@ -272,9 +272,9 @@ Tutorial
     .blackish {
         max-width: var(--total-width);
     }
-    body {
+    /* body {
         max-width: var(--total-width);
-    }
+    } */
 }
 
 .tutorial-content {
