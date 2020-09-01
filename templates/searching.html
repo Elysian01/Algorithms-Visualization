@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/a658a7b479.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="../css/styles.css"> -->
+    <link rel="icon" href="../img/logo.png" />
+    <link rel="stylesheet" href="../css/searching.css" />
+    <title>Search Visualizer</title>
+</head>
+
+<body>
+    <nav>
+        <div class="mobile-logo">
+            <br />
+            <h1>
+                <a href="../index.html">Algo<span>Visualization</span></a>
+                <br>
+            </h1>
+        </div>
+        <div class="logo">
+            <a href="../index.html">Algo<span>Visualization</span></a>
+
+        </div>
+        <ul>
+            <li><a href='../index.html'><label>HOME</label></a></li>
+
+            <li>
+                <a href="#">
+                    <select name="algo" id="algo" onchange="algoSelected()">
+                        <option value="" disabled selected>
+                            CHOOSE ALGORITHM
+                        </option>
+                        <option value="linear">
+                            LINEAR SEARCH
+                        </option>
+                        <option value="jump">
+                            JUMP SEARCH
+                        </option>
+
+                        <option value="binary">
+                            BINARY SEARCH
+                        </option>
+                        <option value="exponent">
+                            EXPONENT SEARCH
+                        </option>
+                    </select>
+                </a>
+            </li>
+
+            <li>
+                <a>
+                    <label for="size">SIZE </label>
+                    <input id="size" onchange="sizeChange()" type="range" min=10 max=70 step=1 value=30>
+                </a>
+            </li>
+
+            <li>
+                <a>
+                    <label for="speed">SPEED </label>
+                    <input id="speed" onchange="speedChange()" type="range" min=1 max=5 step=1 value=3>
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+    <br />
+    <h1 class="container heading">Pick An Algorithm !</h1>
+
+    <div class="container">
+        <input type="number" id="searchKey" class="number-input btn-lg btn" placeholder="Find Number" required />
+        <br />
+
+        <button class="btn-success btn-lg btn-shadow btn-hover" id="search">
+            Search
+        </button>
+        <button class="btn-danger btn-lg btn-shadow btn-hover" id="reset">
+            Reset Array
+        </button>
+    </div>
+
+    <br /><br />
+
+    <div class="data-container">
+        <div class="row container">
+            <!-- <div class="column">
+                <div class="card"><span id="1">56</span><span class="index">0</span></div>
+            </div> -->
+        </div>
+    </div>
+
+    <br /><br />
+
+    <div class="container">
+        <h1 class="result"></h1>
+    </div>
+    <br><br><br>
+
+    <script src="../js/searching/searching.js"></script>
+</body>
+
+</html>
