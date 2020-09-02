@@ -94,6 +94,25 @@ function algoSelected() {
     headerDisplay(algoName);
 }
 
+function disableButtons() {
+    document.getElementById("searchKey").disabled = true;
+    document.getElementById("search").disabled = true;
+    document.getElementById("reset").disabled = true;
+    document.getElementById("speed").disabled = true;
+    document.getElementById("size").disabled = true;
+    document.getElementById("algo").disabled = true;
+}
+
+
+function enableButtons() {
+    document.getElementById("searchKey").disabled = false;
+    document.getElementById("search").disabled = false;
+    document.getElementById("reset").disabled = false;
+    document.getElementById("speed").disabled = false;
+    document.getElementById("size").disabled = false;
+    document.getElementById("algo").disabled = false;
+}
+
 function linearResetArray() {
     arr = [];
     // console.log("Array reset called !");
@@ -118,9 +137,8 @@ async function linearSearch() {
     if (searchKey === "") {
         alert("Please Enter number you have to find");
     } else {
-        document.getElementById("searchKey").disabled = true;
-        document.getElementById("search").disabled = true;
-        document.getElementById("reset").disabled = true;
+
+        disableButtons();
 
         blocks = document.querySelectorAll(".card");
         indexs = document.querySelectorAll(".index");
@@ -145,9 +163,9 @@ async function linearSearch() {
                 break;
             }
 
-            blocks[i].style.backgroundColor = "#003b46";
-            indexs[i].style.backgroundColor = "#5bc8ac";
-            indexs[i].style.color = "#003b46";
+            // blocks[i].style.backgroundColor = "#003b46";
+            // indexs[i].style.backgroundColor = "#5bc8ac";
+            // indexs[i].style.color = "#003b46";
         }
         if (!found) {
             result.style.display = "block";
@@ -157,9 +175,7 @@ async function linearSearch() {
             top: 500,
             behavior: "smooth"
         });
-        document.getElementById("searchKey").disabled = false;
-        document.getElementById("search").disabled = false;
-        document.getElementById("reset").disabled = false;
+        enableButtons();
 
         searchKey.value = "";
     }
@@ -174,9 +190,7 @@ async function binarySearch() {
     if (searchKey === "") {
         alert("Please Enter number you have to find");
     } else {
-        document.getElementById("searchKey").disabled = true;
-        document.getElementById("search").disabled = true;
-        document.getElementById("reset").disabled = true;
+        disableButtons();
 
         blocks = document.querySelectorAll(".card");
         indexs = document.querySelectorAll(".index");
@@ -197,6 +211,10 @@ async function binarySearch() {
             if (arr[mid] == searchKey) {
                 result.style.display = "block";
                 result.innerHTML = `Number found at index : ${mid}`;
+                window.scrollBy({
+                    top: 600,
+                    behavior: "smooth"
+                });
                 //  console.log(
                 //      `${searchKey} Number found at  index ${mid} in array `
                 //  );
@@ -207,9 +225,9 @@ async function binarySearch() {
             } else {
                 left = mid + 1;
             }
-            blocks[mid].style.backgroundColor = "#003b46";
-            indexs[mid].style.backgroundColor = "#5bc8ac";
-            indexs[mid].style.color = "#003b46";
+            // blocks[mid].style.backgroundColor = "#003b46";
+            // indexs[mid].style.backgroundColor = "#5bc8ac";
+            // indexs[mid].style.color = "#003b46";
         }
 
         if (!found) {
@@ -220,9 +238,7 @@ async function binarySearch() {
                 behavior: "smooth"
             });
         }
-        document.getElementById("searchKey").disabled = false;
-        document.getElementById("search").disabled = false;
-        document.getElementById("reset").disabled = false;
+        enableButtons();
         searchKey.value = "";
     }
 }
@@ -238,9 +254,7 @@ async function jumpSearch() {
     if (searchKey === "") {
         alert("Please Enter number you have to find");
     } else {
-        document.getElementById("searchKey").disabled = true;
-        document.getElementById("search").disabled = true;
-        document.getElementById("reset").disabled = true;
+        disableButtons();
 
         while (arr[Math.min(jumpStep, n) - 1] < searchKey) {
             prev = jumpStep;
@@ -295,9 +309,7 @@ async function jumpSearch() {
             top: 600,
             behavior: "smooth"
         });
-        document.getElementById("searchKey").disabled = false;
-        document.getElementById("search").disabled = false;
-        document.getElementById("reset").disabled = false;
+        enableButtons();
         searchKey.value = "";
     }
 }
@@ -312,9 +324,7 @@ async function exponentSearch() {
     if (searchKey === "") {
         alert("Please Enter number you have to find");
     } else {
-        document.getElementById("searchKey").disabled = true;
-        document.getElementById("search").disabled = true;
-        document.getElementById("reset").disabled = true;
+        disableButtons();
 
         if (arr[0] == searchKey) {
             blocks[0].style.backgroundColor = "#5bc8ac";
@@ -412,9 +422,7 @@ async function iterativeBinarySearch(arr, left, right, searchKey) {
         top: 500,
         behavior: "smooth"
     });
-    document.getElementById("searchKey").disabled = false;
-    document.getElementById("search").disabled = false;
-    document.getElementById("reset").disabled = false;
+    enableButtons();
     searchKey.value = "";
 }
 
