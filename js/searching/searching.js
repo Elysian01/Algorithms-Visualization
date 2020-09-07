@@ -78,7 +78,7 @@ function headerDisplay(algoName) {
     if (algoName == "linear") {
         heading.innerHTML = "Linear Search [O(n)]"
     } else if (algoName == "jump") {
-        heading.innerHTML = "Jump Search [O(n)]";
+        heading.innerHTML = "Jump Search";
         sortResetArray();
     } else if (algoName == "binary") {
         heading.innerHTML = "Binary Search [O(logn)]";
