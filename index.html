@@ -19,11 +19,11 @@
         </label>
         <input type='checkbox' id='btn' style="display: none;">
         <ul>
-            <li><a href='index.html'>Home</a></li>
+            <li><a href='https://eda-data-explorer.herokuapp.com/'>EDA</a></li>
             <li><a href='./templates/pathfinding.html'>Pathfinding</a></li>
-            <li><a href='#'>Encryption</a></li>
             <li><a href='./templates/searching.html'>Searching</a></li>
             <li><a href='#'>Sorting</a></li>
+            <li><a href='#'>Encryption</a></li>
             <li><a href='https://github.com/Elysian01/Algorithm-Visualization'>Repo</a></li>
 
         </ul>
@@ -33,60 +33,77 @@
 
     <br>
     <div class="card-deck">
-        <div class="card">
-            <a href="#"><img class="card-image" src="./img/sort2.gif" alt="Sorting image"></a>
-            <div class="container">
-                <div class="card-title">
-                    <h2>Sorting Algorithms</h2>
-                </div>
-                <div class="card-buttons">
 
-                    <button class="btn-danger"><a href="#">Visualize</a></button>
-                </div>
-            </div>
-            <br>
-        </div>
-        <div class="card">
-            <a href="./templates/pathfinding.html"><img class="card-image" src="./img/pathfinding.gif" alt="Pathfinding image"></a>
-            <div class="container">
-                <div class="card-title">
-                    <h2>Pathfinding Algorithms</h2>
-                </div>
-                <div class="card-buttons">
+        <script>
+            let cards = [{
+                    title: "Exploratory Data Analysis",
+                    link: "https://eda-data-explorer.herokuapp.com/",
+                    image: "./img/eda.gif",
+                    alt: "EDA image"
+                }, {
+                    title: "Sorting Algorithms",
+                    link: "#",
+                    image: "./img/sort2.gif",
+                    alt: "Sorting image"
+                }, {
+                    title: "Pathfinding Algorithms",
+                    link: "./templates/pathfinding.html",
+                    image: "./img/pathfinding.gif",
+                    alt: "Pathfinding image"
+                }, {
+                    title: "Searching Algorithms",
+                    link: "./templates/searching.html",
+                    image: "./img/avl.gif",
+                    alt: "Searching image"
+                }, {
+                    title: "Encryption Algorithms",
+                    link: "#",
+                    image: "./img/encryption1.gif",
+                    alt: "Encryption image"
+                }, {
+                    title: "Recursion Algorithms",
+                    link: "#",
+                    image: "./img/recursion.gif",
+                    alt: "Recursion image"
+                }, {
+                    title: "Travelling Salesman",
+                    link: "#",
+                    image: "./img/travellingsalesman.gif",
+                    alt: "Travelling Salesman image"
+                }, {
+                    title: "BackTracking Algorithms",
+                    link: "#",
+                    image: "./img/backtracking.gif",
+                    alt: "BackTracking image"
+                }
 
-                    <button class="btn-danger"><a href="./templates/pathfinding.html">Visualize</a></button>
-                </div>
-            </div>
-            <br>
-        </div>
-        <div class="card">
-            <a href="./templates/searching.html"><img class="card-image" src="./img/avl.gif" alt="Searching image"></a>
-            <div class="container">
-                <div class="card-title">
-                    <h2>Searching Algorithms</h2>
-                </div>
-                <div class="card-buttons">
 
-                    <button class="btn-danger"><a href="./templates/searching.html">Visualize</a></button>
-                </div>
-            </div>
-            <br>
-        </div>
-        <div class="card">
-            <a href="#"><img class="card-image" src="./img/encryption1.gif" alt="Searching image"></a>
-            <div class="container">
-                <div class="card-title">
-                    <h2>Encryption Algorithms</h2>
-                </div>
-                <div class="card-buttons">
 
-                    <button class="btn-danger"><a href="#">Explore & Calculate Encryption Algo</a></button>
-                </div>
-            </div>
-            <br>
-        </div>
+            ]
+
+            for (i = 0; i < cards.length; i++) {
+                card = cards[i]
+                card_template = `
+                     <div class="card">
+                        <a href=${card.link}><img class="card-image" src=${card.image} alt=${card.alt}></a>
+                        <div class="container">
+                            <div class="card-title">
+                                <h2>${card.title}</h2>
+                            </div>
+                            <div class="card-buttons">
+                                <button class="btn-danger"><a href=${card.link}>Visualize</a></button>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                `
+                document.querySelector(".card-deck").innerHTML += card_template;
+            };
+        </script>
+
     </div>
-
+    <br>
+    <br>
 </body>
 
 </html>
